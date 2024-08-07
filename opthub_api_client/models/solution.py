@@ -19,8 +19,8 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
+from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr
+from typing import Any, ClassVar, Dict, List, Optional, Union
 from opthub_api_client.models.participant_type import ParticipantType
 from typing import Optional, Set
 from typing_extensions import Self
@@ -33,7 +33,7 @@ class Solution(BaseModel):
     participant_type: ParticipantType = Field(alias="participantType")
     participant_id: StrictStr = Field(description="参加者のID", alias="participantId")
     trial_no: StrictInt = Field(description="試行番号", alias="trialNo")
-    variable: Dict[str, Any] = Field(description="解空間の変数")
+    variable: List[Union[StrictFloat, StrictInt]] = Field(description="解空間の変数")
     created_at: datetime = Field(description="作成日時", alias="createdAt")
     user_id: Optional[StrictStr] = Field(default=None, description="作成したユーザのID", alias="userId")
     __properties: ClassVar[List[str]] = ["matchId", "participantType", "participantId", "trialNo", "variable", "createdAt", "userId"]

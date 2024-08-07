@@ -17,8 +17,8 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import Field, StrictInt, StrictStr
-from typing import Any, Dict
+from pydantic import Field, StrictFloat, StrictInt, StrictStr
+from typing import List, Union
 from typing_extensions import Annotated
 from opthub_api_client.models.create_solution_response import CreateSolutionResponse
 from opthub_api_client.models.solution import Solution
@@ -45,7 +45,7 @@ class SolutionApi:
     def create_solution(
         self,
         match_id: Annotated[StrictStr, Field(description="競技のID")],
-        variable: Annotated[Dict[str, Any], Field(description="解空間の変数")],
+        variable: Annotated[List[Union[StrictFloat, StrictInt]], Field(description="解空間の変数")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -65,7 +65,7 @@ class SolutionApi:
         :param match_id: 競技のID (required)
         :type match_id: str
         :param variable: 解空間の変数 (required)
-        :type variable: object
+        :type variable: List[float]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -115,7 +115,7 @@ class SolutionApi:
     def create_solution_with_http_info(
         self,
         match_id: Annotated[StrictStr, Field(description="競技のID")],
-        variable: Annotated[Dict[str, Any], Field(description="解空間の変数")],
+        variable: Annotated[List[Union[StrictFloat, StrictInt]], Field(description="解空間の変数")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -135,7 +135,7 @@ class SolutionApi:
         :param match_id: 競技のID (required)
         :type match_id: str
         :param variable: 解空間の変数 (required)
-        :type variable: object
+        :type variable: List[float]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -185,7 +185,7 @@ class SolutionApi:
     def create_solution_without_preload_content(
         self,
         match_id: Annotated[StrictStr, Field(description="競技のID")],
-        variable: Annotated[Dict[str, Any], Field(description="解空間の変数")],
+        variable: Annotated[List[Union[StrictFloat, StrictInt]], Field(description="解空間の変数")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -205,7 +205,7 @@ class SolutionApi:
         :param match_id: 競技のID (required)
         :type match_id: str
         :param variable: 解空間の変数 (required)
-        :type variable: object
+        :type variable: List[float]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -260,6 +260,7 @@ class SolutionApi:
         _host = None
 
         _collection_formats: Dict[str, str] = {
+            'variable': 'multi',
         }
 
         _path_params: Dict[str, str] = {}

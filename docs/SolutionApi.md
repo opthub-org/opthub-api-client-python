@@ -45,7 +45,7 @@ with opthub_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = opthub_api_client.SolutionApi(api_client)
     match_id = '5d7fc778-3e59-4128-a797-2e423c0aa461' # str | 競技のID
-    variable = None # object | 解空間の変数
+    variable = [[1.234,-5.678,9.1011]] # List[float] | 解空間の変数
 
     try:
         # 解の作成
@@ -64,7 +64,7 @@ with opthub_api_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **match_id** | **str**| 競技のID | 
- **variable** | [**object**](.md)| 解空間の変数 | 
+ **variable** | [**List[float]**](float.md)| 解空間の変数 | 
 
 ### Return type
 

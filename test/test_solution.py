@@ -40,7 +40,7 @@ class TestSolution(unittest.TestCase):
                 participant_type = 'User',
                 participant_id = '912f548d-2bbe-48ab-90ce-e96dae38377d',
                 trial_no = 4,
-                variable = None,
+                variable = [1.234,-5.678,9.1011],
                 created_at = '2024-08-06T10:11:45.789Z',
                 user_id = '1e892e70-47ba-4c8e-8563-6aea9019e334'
             )
@@ -50,7 +50,7 @@ class TestSolution(unittest.TestCase):
                 participant_type = 'User',
                 participant_id = '912f548d-2bbe-48ab-90ce-e96dae38377d',
                 trial_no = 4,
-                variable = None,
+                variable = [1.234,-5.678,9.1011],
                 created_at = '2024-08-06T10:11:45.789Z',
         )
         """
