@@ -78,7 +78,7 @@ with opthub_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = opthub_api_client.SolutionApi(api_client)
     match_id = '5d7fc778-3e59-4128-a797-2e423c0aa461' # str | 競技のID
-    variable = [[1.234,-5.678,9.1011]] # List[float] | 解空間の変数
+    variable = [1.234,-5.678,9.1011] # List[float] | 解空間の変数
 
     try:
         # 解の作成
@@ -116,7 +116,7 @@ Authentication schemes defined for the API:
 ### ApiKeyAuth
 
 - **Type**: API key
-- **API key parameter name**: Authorization
+- **API key parameter name**: x-api-key
 - **Location**: HTTP header
 
 

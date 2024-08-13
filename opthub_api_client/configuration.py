@@ -398,7 +398,7 @@ conf = opthub_api_client.Configuration(
             auth['ApiKeyAuth'] = {
                 'type': 'api_key',
                 'in': 'header',
-                'key': 'Authorization',
+                'key': 'x-api-key',
                 'value': self.get_api_key_with_prefix(
                     'ApiKeyAuth',
                 ),
