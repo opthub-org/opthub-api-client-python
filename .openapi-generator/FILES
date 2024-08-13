@@ -1,7 +1,6 @@
 .github/workflows/python.yml
 .gitignore
 .gitlab-ci.yml
-.openapi-generator-ignore
 .travis.yml
 README.md
 docs/CreateSolutionResponse.md
@@ -28,8 +27,4 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
-test/test_create_solution_response.py
-test/test_participant_type.py
-test/test_solution.py
-test/test_solution_api.py
 tox.ini
