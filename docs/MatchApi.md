@@ -1,17 +1,17 @@
-# opthub_api_client.SolutionApi
+# opthub_api_client.MatchApi
 
 All URIs are relative to *https://example.com/todo/opthub-api-endpoint*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_solution**](SolutionApi.md#create_solution) | **POST** /competition/match/{matchId}/solution | 解の作成
-[**get_solution**](SolutionApi.md#get_solution) | **GET** /competition/match/{matchId}/solution | 解の取得
+[**resolve_match_alias_by_id**](MatchApi.md#resolve_match_alias_by_id) | **GET** /competition/match/{matchId}/alias | 競技IDから競技のエイリアスを取得
+[**resolve_match_id_by_alias**](MatchApi.md#resolve_match_id_by_alias) | **GET** /competition/match/alias/{alias} | 競技のエイリアスから競技IDを取得
 
 
-# **create_solution**
-> CreateSolutionResponse create_solution(match_id, variable)
+# **resolve_match_alias_by_id**
+> str resolve_match_alias_by_id(match_id)
 
-解の作成
+競技IDから競技のエイリアスを取得
 
 ### Example
 
@@ -19,7 +19,6 @@ Method | HTTP request | Description
 
 ```python
 import opthub_api_client
-from opthub_api_client.models.create_solution_response import CreateSolutionResponse
 from opthub_api_client.rest import ApiException
 from pprint import pprint
 
@@ -43,17 +42,16 @@ configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 # Enter a context with an instance of the API client
 with opthub_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = opthub_api_client.SolutionApi(api_client)
-    match_id = '5d7fc778-3e59-4128-a797-2e423c0aa461' # str | 競技のID
-    variable = [1.234,-5.678,9.1011] # List[float] | 解空間の変数
+    api_instance = opthub_api_client.MatchApi(api_client)
+    match_id = 'match_id_example' # str | 競技のID
 
     try:
-        # 解の作成
-        api_response = api_instance.create_solution(match_id, variable)
-        print("The response of SolutionApi->create_solution:\n")
+        # 競技IDから競技のエイリアスを取得
+        api_response = api_instance.resolve_match_alias_by_id(match_id)
+        print("The response of MatchApi->resolve_match_alias_by_id:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling SolutionApi->create_solution: %s\n" % e)
+        print("Exception when calling MatchApi->resolve_match_alias_by_id: %s\n" % e)
 ```
 
 
@@ -64,11 +62,10 @@ with opthub_api_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **match_id** | **str**| 競技のID | 
- **variable** | [**List[float]**](float.md)| 解空間の変数 | 
 
 ### Return type
 
-[**CreateSolutionResponse**](CreateSolutionResponse.md)
+**str**
 
 ### Authorization
 
@@ -88,10 +85,10 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_solution**
-> Solution get_solution(match_id, participant_id, trial_no)
+# **resolve_match_id_by_alias**
+> str resolve_match_id_by_alias(alias)
 
-解の取得
+競技のエイリアスから競技IDを取得
 
 ### Example
 
@@ -99,7 +96,6 @@ Name | Type | Description  | Notes
 
 ```python
 import opthub_api_client
-from opthub_api_client.models.solution import Solution
 from opthub_api_client.rest import ApiException
 from pprint import pprint
 
@@ -123,18 +119,16 @@ configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 # Enter a context with an instance of the API client
 with opthub_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = opthub_api_client.SolutionApi(api_client)
-    match_id = '5d7fc778-3e59-4128-a797-2e423c0aa461' # str | 競技のID
-    participant_id = 'participant_id_example' # str | 参加者のID
-    trial_no = 4 # int | 試行番号
+    api_instance = opthub_api_client.MatchApi(api_client)
+    alias = 'alias_example' # str | 競技のエイリアス
 
     try:
-        # 解の取得
-        api_response = api_instance.get_solution(match_id, participant_id, trial_no)
-        print("The response of SolutionApi->get_solution:\n")
+        # 競技のエイリアスから競技IDを取得
+        api_response = api_instance.resolve_match_id_by_alias(alias)
+        print("The response of MatchApi->resolve_match_id_by_alias:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling SolutionApi->get_solution: %s\n" % e)
+        print("Exception when calling MatchApi->resolve_match_id_by_alias: %s\n" % e)
 ```
 
 
@@ -144,13 +138,11 @@ with opthub_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **match_id** | **str**| 競技のID | 
- **participant_id** | **str**| 参加者のID | 
- **trial_no** | **int**| 試行番号 | 
+ **alias** | **str**| 競技のエイリアス | 
 
 ### Return type
 
-[**Solution**](Solution.md)
+**str**
 
 ### Authorization
 

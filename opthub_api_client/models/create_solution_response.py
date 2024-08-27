@@ -18,9 +18,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List
-from opthub_api_client.models.participant_type import ParticipantType
+from pydantic import BaseModel, ConfigDict, Field, StrictInt
+from typing import Any, ClassVar, Dict, List, Optional
+from opthub_api_client.models.participant import Participant
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,11 +28,9 @@ class CreateSolutionResponse(BaseModel):
     """
     解の作成リクエストの結果
     """ # noqa: E501
-    match_id: StrictStr = Field(description="競技のID", alias="matchId")
-    participant_type: ParticipantType = Field(alias="participantType")
-    participant_id: StrictStr = Field(description="参加者のID", alias="participantId")
+    participant: Optional[Participant] = None
     trial_no: StrictInt = Field(description="試行番号", alias="trialNo")
-    __properties: ClassVar[List[str]] = ["matchId", "participantType", "participantId", "trialNo"]
+    __properties: ClassVar[List[str]] = ["participant", "trialNo"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -73,6 +71,9 @@ class CreateSolutionResponse(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of participant
+        if self.participant:
+            _dict['participant'] = self.participant.to_dict()
         return _dict
 
     @classmethod
@@ -85,9 +86,7 @@ class CreateSolutionResponse(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "matchId": obj.get("matchId"),
-            "participantType": obj.get("participantType"),
-            "participantId": obj.get("participantId"),
+            "participant": Participant.from_dict(obj["participant"]) if obj.get("participant") is not None else None,
             "trialNo": obj.get("trialNo")
         })
         return _obj

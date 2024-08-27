@@ -16,5 +16,6 @@
 
 # import models into model package
 from opthub_api_client.models.create_solution_response import CreateSolutionResponse
+from opthub_api_client.models.participant import Participant
 from opthub_api_client.models.participant_type import ParticipantType
 from opthub_api_client.models.solution import Solution

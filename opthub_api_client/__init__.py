@@ -18,6 +18,9 @@
 __version__ = "1.0.0"
 
 # import apis into sdk package
+from opthub_api_client.api.alias_api import AliasApi
+from opthub_api_client.api.competition_api import CompetitionApi
+from opthub_api_client.api.match_api import MatchApi
 from opthub_api_client.api.solution_api import SolutionApi
 
 # import ApiClient
@@ -33,5 +36,6 @@ from opthub_api_client.exceptions import ApiException
 
 # import models into sdk package
 from opthub_api_client.models.create_solution_response import CreateSolutionResponse
+from opthub_api_client.models.participant import Participant
 from opthub_api_client.models.participant_type import ParticipantType
 from opthub_api_client.models.solution import Solution

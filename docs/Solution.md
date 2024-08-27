@@ -7,8 +7,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **match_id** | **str** | 競技のID | 
-**participant_type** | [**ParticipantType**](ParticipantType.md) |  | 
-**participant_id** | **str** | 参加者のID | 
+**participant** | [**Participant**](Participant.md) |  | [optional] 
 **trial_no** | **int** | 試行番号 | 
 **variable** | **List[float]** | 解空間の変数 | 
 **created_at** | **datetime** | 作成日時 | 

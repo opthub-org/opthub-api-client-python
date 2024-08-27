@@ -18,24 +18,19 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional, Union
-from opthub_api_client.models.participant import Participant
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from typing import Any, ClassVar, Dict, List
+from opthub_api_client.models.participant_type import ParticipantType
 from typing import Optional, Set
 from typing_extensions import Self
 
-class Solution(BaseModel):
+class Participant(BaseModel):
     """
-    解
+    参加者の情報
     """ # noqa: E501
-    match_id: StrictStr = Field(description="競技のID", alias="matchId")
-    participant: Optional[Participant] = None
-    trial_no: StrictInt = Field(description="試行番号", alias="trialNo")
-    variable: List[Union[StrictFloat, StrictInt]] = Field(description="解空間の変数")
-    created_at: datetime = Field(description="作成日時", alias="createdAt")
-    user_id: Optional[StrictStr] = Field(default=None, description="作成したユーザのID", alias="userId")
-    __properties: ClassVar[List[str]] = ["matchId", "participant", "trialNo", "variable", "createdAt", "userId"]
+    participant_id: StrictStr = Field(description="参加者のID", alias="participantId")
+    participant_type: ParticipantType = Field(alias="participantType")
+    __properties: ClassVar[List[str]] = ["participantId", "participantType"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -55,7 +50,7 @@ class Solution(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of Solution from a JSON string"""
+        """Create an instance of Participant from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -76,14 +71,11 @@ class Solution(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of participant
-        if self.participant:
-            _dict['participant'] = self.participant.to_dict()
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of Solution from a dict"""
+        """Create an instance of Participant from a dict"""
         if obj is None:
             return None
 
@@ -91,12 +83,8 @@ class Solution(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "matchId": obj.get("matchId"),
-            "participant": Participant.from_dict(obj["participant"]) if obj.get("participant") is not None else None,
-            "trialNo": obj.get("trialNo"),
-            "variable": obj.get("variable"),
-            "createdAt": obj.get("createdAt"),
-            "userId": obj.get("userId")
+            "participantId": obj.get("participantId"),
+            "participantType": obj.get("participantType")
         })
         return _obj
 
