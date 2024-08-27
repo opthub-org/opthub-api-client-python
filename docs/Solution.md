@@ -1,13 +1,11 @@
 # Solution
 
-解
+Solution information
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**match_id** | **str** | Match ID | 
-**trial_no** | **int** | Trial number | 
 **variable** | **List[float]** | Solution space variable | 
 **created_at** | **datetime** | Creation date and time | 
 **user_id** | **str** | ID of the user who created it | [optional] 
