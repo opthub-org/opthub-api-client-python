@@ -103,6 +103,7 @@ Class | Method | HTTP request | Description
 *CompetitionApi* | [**resolve_competition_id_by_alias**](docs/CompetitionApi.md#resolve_competition_id_by_alias) | **GET** /competition/alias/{alias} | Retrieve the competition ID from the competition alias
 *MatchApi* | [**resolve_match_alias_by_id**](docs/MatchApi.md#resolve_match_alias_by_id) | **GET** /competition/match/{matchId}/alias | Retrieve the match alias from the match ID
 *MatchApi* | [**resolve_match_id_by_alias**](docs/MatchApi.md#resolve_match_id_by_alias) | **GET** /competition/match/alias/{alias} | Retrieve the match ID from the match alias
+*ParticipantApi* | [**get_participant**](docs/ParticipantApi.md#get_participant) | **GET** /participant/{id} | Retrieve the participant information
 *SolutionApi* | [**create_solution**](docs/SolutionApi.md#create_solution) | **POST** /competition/match/{matchId}/solution | Create solution
 *SolutionApi* | [**get_solution**](docs/SolutionApi.md#get_solution) | **GET** /competition/match/{matchId}/solution | Retrive solution
 

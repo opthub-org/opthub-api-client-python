@@ -21,7 +21,6 @@ import json
 from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional, Union
-from opthub_api_client.models.participant import Participant
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -30,12 +29,11 @@ class Solution(BaseModel):
     解
     """ # noqa: E501
     match_id: StrictStr = Field(description="Match ID", alias="matchId")
-    participant: Participant
     trial_no: StrictInt = Field(description="Trial number", alias="trialNo")
     variable: List[Union[StrictFloat, StrictInt]] = Field(description="Solution space variable")
     created_at: datetime = Field(description="Creation date and time", alias="createdAt")
     user_id: Optional[StrictStr] = Field(default=None, description="ID of the user who created it", alias="userId")
-    __properties: ClassVar[List[str]] = ["matchId", "participant", "trialNo", "variable", "createdAt", "userId"]
+    __properties: ClassVar[List[str]] = ["matchId", "trialNo", "variable", "createdAt", "userId"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -76,9 +74,6 @@ class Solution(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of participant
-        if self.participant:
-            _dict['participant'] = self.participant.to_dict()
         return _dict
 
     @classmethod
@@ -92,7 +87,6 @@ class Solution(BaseModel):
 
         _obj = cls.model_validate({
             "matchId": obj.get("matchId"),
-            "participant": Participant.from_dict(obj["participant"]) if obj.get("participant") is not None else None,
             "trialNo": obj.get("trialNo"),
             "variable": obj.get("variable"),
             "createdAt": obj.get("createdAt"),

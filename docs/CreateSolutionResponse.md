@@ -6,7 +6,7 @@ Information of the created solution
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**participant** | [**Participant**](Participant.md) |  | 
+**participant_id** | **str** | Participant ID | 
 **trial_no** | **int** | Trial number | 
 
 ## Example

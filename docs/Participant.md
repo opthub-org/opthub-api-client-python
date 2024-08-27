@@ -6,7 +6,6 @@ Participant information
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**participant_id** | **str** | Participant ID | 
 **participant_type** | [**ParticipantType**](ParticipantType.md) |  | 
 
 ## Example

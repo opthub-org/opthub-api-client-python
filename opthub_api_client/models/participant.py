@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
 from opthub_api_client.models.participant_type import ParticipantType
 from typing import Optional, Set
@@ -28,9 +28,8 @@ class Participant(BaseModel):
     """
     Participant information
     """ # noqa: E501
-    participant_id: StrictStr = Field(description="Participant ID", alias="participantId")
     participant_type: ParticipantType = Field(alias="participantType")
-    __properties: ClassVar[List[str]] = ["participantId", "participantType"]
+    __properties: ClassVar[List[str]] = ["participantType"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -83,7 +82,6 @@ class Participant(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "participantId": obj.get("participantId"),
             "participantType": obj.get("participantType")
         })
         return _obj

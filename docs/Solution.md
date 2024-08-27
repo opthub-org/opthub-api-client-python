@@ -7,7 +7,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **match_id** | **str** | Match ID | 
-**participant** | [**Participant**](Participant.md) |  | 
 **trial_no** | **int** | Trial number | 
 **variable** | **List[float]** | Solution space variable | 
 **created_at** | **datetime** | Creation date and time | 

@@ -18,9 +18,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictInt
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List
-from opthub_api_client.models.participant import Participant
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,9 +27,9 @@ class CreateSolutionResponse(BaseModel):
     """
     Information of the created solution
     """ # noqa: E501
-    participant: Participant
+    participant_id: StrictStr = Field(description="Participant ID", alias="participantId")
     trial_no: StrictInt = Field(description="Trial number", alias="trialNo")
-    __properties: ClassVar[List[str]] = ["participant", "trialNo"]
+    __properties: ClassVar[List[str]] = ["participantId", "trialNo"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -71,9 +70,6 @@ class CreateSolutionResponse(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of participant
-        if self.participant:
-            _dict['participant'] = self.participant.to_dict()
         return _dict
 
     @classmethod
@@ -86,7 +82,7 @@ class CreateSolutionResponse(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "participant": Participant.from_dict(obj["participant"]) if obj.get("participant") is not None else None,
+            "participantId": obj.get("participantId"),
             "trialNo": obj.get("trialNo")
         })
         return _obj

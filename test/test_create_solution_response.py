@@ -36,16 +36,12 @@ class TestCreateSolutionResponse(unittest.TestCase):
         model = CreateSolutionResponse()
         if include_optional:
             return CreateSolutionResponse(
-                participant = opthub_api_client.models.participant.Participant(
-                    participant_id = '912f548d-2bbe-48ab-90ce-e96dae38377d', 
-                    participant_type = 'User', ),
+                participant_id = '912f548d-2bbe-48ab-90ce-e96dae38377d',
                 trial_no = 4
             )
         else:
             return CreateSolutionResponse(
-                participant = opthub_api_client.models.participant.Participant(
-                    participant_id = '912f548d-2bbe-48ab-90ce-e96dae38377d', 
-                    participant_type = 'User', ),
+                participant_id = '912f548d-2bbe-48ab-90ce-e96dae38377d',
                 trial_no = 4,
         )
         """

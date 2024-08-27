@@ -36,12 +36,10 @@ class TestParticipant(unittest.TestCase):
         model = Participant()
         if include_optional:
             return Participant(
-                participant_id = '912f548d-2bbe-48ab-90ce-e96dae38377d',
                 participant_type = 'User'
             )
         else:
             return Participant(
-                participant_id = '912f548d-2bbe-48ab-90ce-e96dae38377d',
                 participant_type = 'User',
         )
         """

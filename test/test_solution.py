@@ -37,9 +37,6 @@ class TestSolution(unittest.TestCase):
         if include_optional:
             return Solution(
                 match_id = '5d7fc778-3e59-4128-a797-2e423c0aa461',
-                participant = opthub_api_client.models.participant.Participant(
-                    participant_id = '912f548d-2bbe-48ab-90ce-e96dae38377d', 
-                    participant_type = 'User', ),
                 trial_no = 4,
                 variable = [1.234,-5.678,9.1011],
                 created_at = '2024-08-06T10:11:45.789Z',
@@ -48,9 +45,6 @@ class TestSolution(unittest.TestCase):
         else:
             return Solution(
                 match_id = '5d7fc778-3e59-4128-a797-2e423c0aa461',
-                participant = opthub_api_client.models.participant.Participant(
-                    participant_id = '912f548d-2bbe-48ab-90ce-e96dae38377d', 
-                    participant_type = 'User', ),
                 trial_no = 4,
                 variable = [1.234,-5.678,9.1011],
                 created_at = '2024-08-06T10:11:45.789Z',
