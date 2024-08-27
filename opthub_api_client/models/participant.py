@@ -3,7 +3,7 @@
 """
     OptHub REST API
 
-    OptHubの公開REST APIです。
+    OptHub Public REST API.
 
     The version of the OpenAPI document: 0.1.0
     Contact: dev@opthub.ai
@@ -26,9 +26,9 @@ from typing_extensions import Self
 
 class Participant(BaseModel):
     """
-    参加者の情報
+    Participant information
     """ # noqa: E501
-    participant_id: StrictStr = Field(description="参加者のID", alias="participantId")
+    participant_id: StrictStr = Field(description="Participant ID", alias="participantId")
     participant_type: ParticipantType = Field(alias="participantType")
     __properties: ClassVar[List[str]] = ["participantId", "participantType"]
 

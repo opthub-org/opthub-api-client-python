@@ -1,6 +1,5 @@
 # coding: utf-8
 
-# flake8: noqa
 """
     OptHub REST API
 
@@ -14,9 +13,22 @@
 """  # noqa: E501
 
 
-# import models into model package
-from opthub_api_client.models.create_solution_response import CreateSolutionResponse
+import unittest
+
 from opthub_api_client.models.get_solution_error import GetSolutionError
-from opthub_api_client.models.participant import Participant
-from opthub_api_client.models.participant_type import ParticipantType
-from opthub_api_client.models.solution import Solution
+
+class TestGetSolutionError(unittest.TestCase):
+    """GetSolutionError unit test stubs"""
+
+    def setUp(self):
+        pass
+
+    def tearDown(self):
+        pass
+
+    def testGetSolutionError(self):
+        """Test GetSolutionError"""
+        # inst = GetSolutionError()
+
+if __name__ == '__main__':
+    unittest.main()

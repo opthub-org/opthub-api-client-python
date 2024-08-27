@@ -3,7 +3,7 @@
 """
     OptHub REST API
 
-    OptHubの公開REST APIです。
+    OptHub Public REST API.
 
     The version of the OpenAPI document: 0.1.0
     Contact: dev@opthub.ai
@@ -30,14 +30,14 @@ class TestMatchApi(unittest.TestCase):
     def test_resolve_match_alias_by_id(self) -> None:
         """Test case for resolve_match_alias_by_id
 
-        競技IDから競技のエイリアスを取得
+        Retrieve the match alias from the match ID
         """
         pass
 
     def test_resolve_match_id_by_alias(self) -> None:
         """Test case for resolve_match_id_by_alias
 
-        競技のエイリアスから競技IDを取得
+        Retrieve the match ID from the match alias
         """
         pass
 

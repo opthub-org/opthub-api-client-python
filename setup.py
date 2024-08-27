@@ -3,7 +3,7 @@
 """
     OptHub REST API
 
-    OptHubの公開REST APIです。
+    OptHub Public REST API.
 
     The version of the OpenAPI document: 0.1.0
     Contact: dev@opthub.ai
@@ -45,7 +45,7 @@ setup(
     license="MIT",
     long_description_content_type='text/markdown',
     long_description="""\
-    OptHubの公開REST APIです。
+    OptHub Public REST API.
     """,  # noqa: E501
     package_data={"opthub_api_client": ["py.typed"]},
 )

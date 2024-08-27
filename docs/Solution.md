@@ -6,12 +6,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**match_id** | **str** | 競技のID | 
-**participant** | [**Participant**](Participant.md) |  | [optional] 
-**trial_no** | **int** | 試行番号 | 
-**variable** | **List[float]** | 解空間の変数 | 
-**created_at** | **datetime** | 作成日時 | 
-**user_id** | **str** | 作成したユーザのID | [optional] 
+**match_id** | **str** | Match ID | 
+**participant** | [**Participant**](Participant.md) |  | 
+**trial_no** | **int** | Trial number | 
+**variable** | **List[float]** | Solution space variable | 
+**created_at** | **datetime** | Creation date and time | 
+**user_id** | **str** | ID of the user who created it | [optional] 
 
 ## Example
 

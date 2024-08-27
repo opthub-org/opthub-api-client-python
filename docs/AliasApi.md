@@ -4,16 +4,16 @@ All URIs are relative to *https://example.com/todo/opthub-api-endpoint*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**resolve_competition_alias_by_id**](AliasApi.md#resolve_competition_alias_by_id) | **GET** /competition/{id}/alias | コンペティションIDからコンペティションのエイリアスを取得
-[**resolve_competition_id_by_alias**](AliasApi.md#resolve_competition_id_by_alias) | **GET** /competition/alias/{alias} | コンペティションのエイリアスからコンペティションIDを取得
-[**resolve_match_alias_by_id**](AliasApi.md#resolve_match_alias_by_id) | **GET** /competition/match/{matchId}/alias | 競技IDから競技のエイリアスを取得
-[**resolve_match_id_by_alias**](AliasApi.md#resolve_match_id_by_alias) | **GET** /competition/match/alias/{alias} | 競技のエイリアスから競技IDを取得
+[**resolve_competition_alias_by_id**](AliasApi.md#resolve_competition_alias_by_id) | **GET** /competition/{id}/alias | Retrieve the competition alias from the competition ID
+[**resolve_competition_id_by_alias**](AliasApi.md#resolve_competition_id_by_alias) | **GET** /competition/alias/{alias} | Retrieve the competition ID from the competition alias
+[**resolve_match_alias_by_id**](AliasApi.md#resolve_match_alias_by_id) | **GET** /competition/match/{matchId}/alias | Retrieve the match alias from the match ID
+[**resolve_match_id_by_alias**](AliasApi.md#resolve_match_id_by_alias) | **GET** /competition/match/alias/{alias} | Retrieve the match ID from the match alias
 
 
 # **resolve_competition_alias_by_id**
 > str resolve_competition_alias_by_id(id)
 
-コンペティションIDからコンペティションのエイリアスを取得
+Retrieve the competition alias from the competition ID
 
 ### Example
 
@@ -45,10 +45,10 @@ configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 with opthub_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = opthub_api_client.AliasApi(api_client)
-    id = 'id_example' # str | コンペティションのID
+    id = '42c999a1-a30c-47ef-b656-eb49f67488dc' # str | Competition ID
 
     try:
-        # コンペティションIDからコンペティションのエイリアスを取得
+        # Retrieve the competition alias from the competition ID
         api_response = api_instance.resolve_competition_alias_by_id(id)
         print("The response of AliasApi->resolve_competition_alias_by_id:\n")
         pprint(api_response)
@@ -63,7 +63,7 @@ with opthub_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| コンペティションのID | 
+ **id** | **str**| Competition ID | 
 
 ### Return type
 
@@ -82,15 +82,15 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successful operation |  -  |
-**0** | successful operation |  -  |
+**200** | Competition alias |  -  |
+**404** | Competition ID not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **resolve_competition_id_by_alias**
 > str resolve_competition_id_by_alias(alias)
 
-コンペティションのエイリアスからコンペティションIDを取得
+Retrieve the competition ID from the competition alias
 
 ### Example
 
@@ -122,10 +122,10 @@ configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 with opthub_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = opthub_api_client.AliasApi(api_client)
-    alias = 'alias_example' # str | コンペティションのエイリアス
+    alias = 'competition123' # str | Competition alias
 
     try:
-        # コンペティションのエイリアスからコンペティションIDを取得
+        # Retrieve the competition ID from the competition alias
         api_response = api_instance.resolve_competition_id_by_alias(alias)
         print("The response of AliasApi->resolve_competition_id_by_alias:\n")
         pprint(api_response)
@@ -140,7 +140,7 @@ with opthub_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **alias** | **str**| コンペティションのエイリアス | 
+ **alias** | **str**| Competition alias | 
 
 ### Return type
 
@@ -159,15 +159,15 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successful operation |  -  |
-**0** | successful operation |  -  |
+**200** | Competition ID |  -  |
+**404** | Competition alias not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **resolve_match_alias_by_id**
 > str resolve_match_alias_by_id(match_id)
 
-競技IDから競技のエイリアスを取得
+Retrieve the match alias from the match ID
 
 ### Example
 
@@ -199,10 +199,10 @@ configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 with opthub_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = opthub_api_client.AliasApi(api_client)
-    match_id = 'match_id_example' # str | 競技のID
+    match_id = '5d7fc778-3e59-4128-a797-2e423c0aa461' # str | Match ID
 
     try:
-        # 競技IDから競技のエイリアスを取得
+        # Retrieve the match alias from the match ID
         api_response = api_instance.resolve_match_alias_by_id(match_id)
         print("The response of AliasApi->resolve_match_alias_by_id:\n")
         pprint(api_response)
@@ -217,7 +217,7 @@ with opthub_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **match_id** | **str**| 競技のID | 
+ **match_id** | **str**| Match ID | 
 
 ### Return type
 
@@ -236,15 +236,15 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successful operation |  -  |
-**0** | successful operation |  -  |
+**200** | Match alias |  -  |
+**404** | Match ID not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **resolve_match_id_by_alias**
 > str resolve_match_id_by_alias(alias)
 
-競技のエイリアスから競技IDを取得
+Retrieve the match ID from the match alias
 
 ### Example
 
@@ -276,10 +276,10 @@ configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 with opthub_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = opthub_api_client.AliasApi(api_client)
-    alias = 'alias_example' # str | 競技のエイリアス
+    alias = 'match123' # str | Match alias
 
     try:
-        # 競技のエイリアスから競技IDを取得
+        # Retrieve the match ID from the match alias
         api_response = api_instance.resolve_match_id_by_alias(alias)
         print("The response of AliasApi->resolve_match_id_by_alias:\n")
         pprint(api_response)
@@ -294,7 +294,7 @@ with opthub_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **alias** | **str**| 競技のエイリアス | 
+ **alias** | **str**| Match alias | 
 
 ### Return type
 
@@ -313,8 +313,8 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successful operation |  -  |
-**0** | successful operation |  -  |
+**200** | Match ID |  -  |
+**404** | Match alias not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

@@ -3,7 +3,7 @@
 """
     OptHub REST API
 
-    OptHubの公開REST APIです。
+    OptHub Public REST API.
 
     The version of the OpenAPI document: 0.1.0
     Contact: dev@opthub.ai
@@ -29,12 +29,12 @@ class Solution(BaseModel):
     """
     解
     """ # noqa: E501
-    match_id: StrictStr = Field(description="競技のID", alias="matchId")
-    participant: Optional[Participant] = None
-    trial_no: StrictInt = Field(description="試行番号", alias="trialNo")
-    variable: List[Union[StrictFloat, StrictInt]] = Field(description="解空間の変数")
-    created_at: datetime = Field(description="作成日時", alias="createdAt")
-    user_id: Optional[StrictStr] = Field(default=None, description="作成したユーザのID", alias="userId")
+    match_id: StrictStr = Field(description="Match ID", alias="matchId")
+    participant: Participant
+    trial_no: StrictInt = Field(description="Trial number", alias="trialNo")
+    variable: List[Union[StrictFloat, StrictInt]] = Field(description="Solution space variable")
+    created_at: datetime = Field(description="Creation date and time", alias="createdAt")
+    user_id: Optional[StrictStr] = Field(default=None, description="ID of the user who created it", alias="userId")
     __properties: ClassVar[List[str]] = ["matchId", "participant", "trialNo", "variable", "createdAt", "userId"]
 
     model_config = ConfigDict(

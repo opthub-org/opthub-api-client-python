@@ -3,7 +3,7 @@
 """
     OptHub REST API
 
-    OptHubの公開REST APIです。
+    OptHub Public REST API.
 
     The version of the OpenAPI document: 0.1.0
     Contact: dev@opthub.ai

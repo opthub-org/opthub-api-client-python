@@ -3,7 +3,7 @@
 """
     OptHub REST API
 
-    OptHubの公開REST APIです。
+    OptHub Public REST API.
 
     The version of the OpenAPI document: 0.1.0
     Contact: dev@opthub.ai
@@ -19,17 +19,17 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
 from opthub_api_client.models.participant import Participant
 from typing import Optional, Set
 from typing_extensions import Self
 
 class CreateSolutionResponse(BaseModel):
     """
-    解の作成リクエストの結果
+    Information of the created solution
     """ # noqa: E501
-    participant: Optional[Participant] = None
-    trial_no: StrictInt = Field(description="試行番号", alias="trialNo")
+    participant: Participant
+    trial_no: StrictInt = Field(description="Trial number", alias="trialNo")
     __properties: ClassVar[List[str]] = ["participant", "trialNo"]
 
     model_config = ConfigDict(

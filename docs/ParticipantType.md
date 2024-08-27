@@ -1,6 +1,6 @@
 # ParticipantType
 
-参加者の種別
+Participant type
 
 ## Enum
 

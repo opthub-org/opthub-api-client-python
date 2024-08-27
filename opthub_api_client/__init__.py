@@ -5,7 +5,7 @@
 """
     OptHub REST API
 
-    OptHubの公開REST APIです。
+    OptHub Public REST API.
 
     The version of the OpenAPI document: 0.1.0
     Contact: dev@opthub.ai
@@ -36,6 +36,7 @@ from opthub_api_client.exceptions import ApiException
 
 # import models into sdk package
 from opthub_api_client.models.create_solution_response import CreateSolutionResponse
+from opthub_api_client.models.get_solution_error import GetSolutionError
 from opthub_api_client.models.participant import Participant
 from opthub_api_client.models.participant_type import ParticipantType
 from opthub_api_client.models.solution import Solution

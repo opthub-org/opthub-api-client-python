@@ -4,14 +4,14 @@ All URIs are relative to *https://example.com/todo/opthub-api-endpoint*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_solution**](SolutionApi.md#create_solution) | **POST** /competition/match/{matchId}/solution | 解の作成
-[**get_solution**](SolutionApi.md#get_solution) | **GET** /competition/match/{matchId}/solution | 解の取得
+[**create_solution**](SolutionApi.md#create_solution) | **POST** /competition/match/{matchId}/solution | Create solution
+[**get_solution**](SolutionApi.md#get_solution) | **GET** /competition/match/{matchId}/solution | Retrive solution
 
 
 # **create_solution**
 > CreateSolutionResponse create_solution(match_id, variable)
 
-解の作成
+Create solution
 
 ### Example
 
@@ -44,11 +44,11 @@ configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 with opthub_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = opthub_api_client.SolutionApi(api_client)
-    match_id = '5d7fc778-3e59-4128-a797-2e423c0aa461' # str | 競技のID
-    variable = [1.234,-5.678,9.1011] # List[float] | 解空間の変数
+    match_id = '5d7fc778-3e59-4128-a797-2e423c0aa461' # str | Match ID
+    variable = [1.234,-5.678,9.1011] # List[float] | Solution space variable
 
     try:
-        # 解の作成
+        # Create solution
         api_response = api_instance.create_solution(match_id, variable)
         print("The response of SolutionApi->create_solution:\n")
         pprint(api_response)
@@ -63,8 +63,8 @@ with opthub_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **match_id** | **str**| 競技のID | 
- **variable** | [**List[float]**](float.md)| 解空間の変数 | 
+ **match_id** | **str**| Match ID | 
+ **variable** | [**List[float]**](float.md)| Solution space variable | 
 
 ### Return type
 
@@ -83,15 +83,15 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successful operation |  -  |
-**0** | successful operation |  -  |
+**200** | Information of the created solution |  -  |
+**404** | Match ID not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_solution**
 > Solution get_solution(match_id, participant_id, trial_no)
 
-解の取得
+Retrive solution
 
 ### Example
 
@@ -124,12 +124,12 @@ configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 with opthub_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = opthub_api_client.SolutionApi(api_client)
-    match_id = '5d7fc778-3e59-4128-a797-2e423c0aa461' # str | 競技のID
-    participant_id = 'participant_id_example' # str | 参加者のID
-    trial_no = 4 # int | 試行番号
+    match_id = '5d7fc778-3e59-4128-a797-2e423c0aa461' # str | Match ID
+    participant_id = '912f548d-2bbe-48ab-90ce-e96dae38377d' # str | Participant ID
+    trial_no = 4 # int | Trial number
 
     try:
-        # 解の取得
+        # Retrive solution
         api_response = api_instance.get_solution(match_id, participant_id, trial_no)
         print("The response of SolutionApi->get_solution:\n")
         pprint(api_response)
@@ -144,9 +144,9 @@ with opthub_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **match_id** | **str**| 競技のID | 
- **participant_id** | **str**| 参加者のID | 
- **trial_no** | **int**| 試行番号 | 
+ **match_id** | **str**| Match ID | 
+ **participant_id** | **str**| Participant ID | 
+ **trial_no** | **int**| Trial number | 
 
 ### Return type
 
@@ -165,8 +165,8 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successful operation |  -  |
-**0** | successful operation |  -  |
+**200** | Information of the solution |  -  |
+**404** | The created solution specified in the query was not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

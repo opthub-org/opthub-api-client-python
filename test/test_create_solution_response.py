@@ -3,7 +3,7 @@
 """
     OptHub REST API
 
-    OptHubの公開REST APIです。
+    OptHub Public REST API.
 
     The version of the OpenAPI document: 0.1.0
     Contact: dev@opthub.ai
@@ -43,6 +43,9 @@ class TestCreateSolutionResponse(unittest.TestCase):
             )
         else:
             return CreateSolutionResponse(
+                participant = opthub_api_client.models.participant.Participant(
+                    participant_id = '912f548d-2bbe-48ab-90ce-e96dae38377d', 
+                    participant_type = 'User', ),
                 trial_no = 4,
         )
         """

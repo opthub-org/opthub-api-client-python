@@ -1,12 +1,12 @@
 # Participant
 
-参加者の情報
+Participant information
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**participant_id** | **str** | 参加者のID | 
+**participant_id** | **str** | Participant ID | 
 **participant_type** | [**ParticipantType**](ParticipantType.md) |  | 
 
 ## Example

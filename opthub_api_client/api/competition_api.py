@@ -3,7 +3,7 @@
 """
     OptHub REST API
 
-    OptHubの公開REST APIです。
+    OptHub Public REST API.
 
     The version of the OpenAPI document: 0.1.0
     Contact: dev@opthub.ai
@@ -41,7 +41,7 @@ class CompetitionApi:
     @validate_call
     def resolve_competition_alias_by_id(
         self,
-        id: Annotated[StrictStr, Field(description="コンペティションのID")],
+        id: Annotated[StrictStr, Field(description="Competition ID")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -55,10 +55,10 @@ class CompetitionApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> str:
-        """コンペティションIDからコンペティションのエイリアスを取得
+        """Retrieve the competition alias from the competition ID
 
 
-        :param id: コンペティションのID (required)
+        :param id: Competition ID (required)
         :type id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -92,6 +92,7 @@ class CompetitionApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "str",
+            '404': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -107,7 +108,7 @@ class CompetitionApi:
     @validate_call
     def resolve_competition_alias_by_id_with_http_info(
         self,
-        id: Annotated[StrictStr, Field(description="コンペティションのID")],
+        id: Annotated[StrictStr, Field(description="Competition ID")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -121,10 +122,10 @@ class CompetitionApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[str]:
-        """コンペティションIDからコンペティションのエイリアスを取得
+        """Retrieve the competition alias from the competition ID
 
 
-        :param id: コンペティションのID (required)
+        :param id: Competition ID (required)
         :type id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -158,6 +159,7 @@ class CompetitionApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "str",
+            '404': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -173,7 +175,7 @@ class CompetitionApi:
     @validate_call
     def resolve_competition_alias_by_id_without_preload_content(
         self,
-        id: Annotated[StrictStr, Field(description="コンペティションのID")],
+        id: Annotated[StrictStr, Field(description="Competition ID")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -187,10 +189,10 @@ class CompetitionApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """コンペティションIDからコンペティションのエイリアスを取得
+        """Retrieve the competition alias from the competition ID
 
 
-        :param id: コンペティションのID (required)
+        :param id: Competition ID (required)
         :type id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -224,6 +226,7 @@ class CompetitionApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "str",
+            '404': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -297,7 +300,7 @@ class CompetitionApi:
     @validate_call
     def resolve_competition_id_by_alias(
         self,
-        alias: Annotated[StrictStr, Field(description="コンペティションのエイリアス")],
+        alias: Annotated[StrictStr, Field(description="Competition alias")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -311,10 +314,10 @@ class CompetitionApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> str:
-        """コンペティションのエイリアスからコンペティションIDを取得
+        """Retrieve the competition ID from the competition alias
 
 
-        :param alias: コンペティションのエイリアス (required)
+        :param alias: Competition alias (required)
         :type alias: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -348,6 +351,7 @@ class CompetitionApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "str",
+            '404': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -363,7 +367,7 @@ class CompetitionApi:
     @validate_call
     def resolve_competition_id_by_alias_with_http_info(
         self,
-        alias: Annotated[StrictStr, Field(description="コンペティションのエイリアス")],
+        alias: Annotated[StrictStr, Field(description="Competition alias")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -377,10 +381,10 @@ class CompetitionApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[str]:
-        """コンペティションのエイリアスからコンペティションIDを取得
+        """Retrieve the competition ID from the competition alias
 
 
-        :param alias: コンペティションのエイリアス (required)
+        :param alias: Competition alias (required)
         :type alias: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -414,6 +418,7 @@ class CompetitionApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "str",
+            '404': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -429,7 +434,7 @@ class CompetitionApi:
     @validate_call
     def resolve_competition_id_by_alias_without_preload_content(
         self,
-        alias: Annotated[StrictStr, Field(description="コンペティションのエイリアス")],
+        alias: Annotated[StrictStr, Field(description="Competition alias")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -443,10 +448,10 @@ class CompetitionApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """コンペティションのエイリアスからコンペティションIDを取得
+        """Retrieve the competition ID from the competition alias
 
 
-        :param alias: コンペティションのエイリアス (required)
+        :param alias: Competition alias (required)
         :type alias: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -480,6 +485,7 @@ class CompetitionApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "str",
+            '404': None,
         }
         response_data = self.api_client.call_api(
             *_param,

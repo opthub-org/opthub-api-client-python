@@ -3,7 +3,7 @@
 """
     OptHub REST API
 
-    OptHubの公開REST APIです。
+    OptHub Public REST API.
 
     The version of the OpenAPI document: 0.1.0
     Contact: dev@opthub.ai
@@ -44,8 +44,8 @@ class SolutionApi:
     @validate_call
     def create_solution(
         self,
-        match_id: Annotated[StrictStr, Field(description="競技のID")],
-        variable: Annotated[List[Union[StrictFloat, StrictInt]], Field(description="解空間の変数")],
+        match_id: Annotated[StrictStr, Field(description="Match ID")],
+        variable: Annotated[List[Union[StrictFloat, StrictInt]], Field(description="Solution space variable")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -59,12 +59,12 @@ class SolutionApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> CreateSolutionResponse:
-        """解の作成
+        """Create solution
 
 
-        :param match_id: 競技のID (required)
+        :param match_id: Match ID (required)
         :type match_id: str
-        :param variable: 解空間の変数 (required)
+        :param variable: Solution space variable (required)
         :type variable: List[float]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -99,6 +99,7 @@ class SolutionApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CreateSolutionResponse",
+            '404': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -114,8 +115,8 @@ class SolutionApi:
     @validate_call
     def create_solution_with_http_info(
         self,
-        match_id: Annotated[StrictStr, Field(description="競技のID")],
-        variable: Annotated[List[Union[StrictFloat, StrictInt]], Field(description="解空間の変数")],
+        match_id: Annotated[StrictStr, Field(description="Match ID")],
+        variable: Annotated[List[Union[StrictFloat, StrictInt]], Field(description="Solution space variable")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -129,12 +130,12 @@ class SolutionApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[CreateSolutionResponse]:
-        """解の作成
+        """Create solution
 
 
-        :param match_id: 競技のID (required)
+        :param match_id: Match ID (required)
         :type match_id: str
-        :param variable: 解空間の変数 (required)
+        :param variable: Solution space variable (required)
         :type variable: List[float]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -169,6 +170,7 @@ class SolutionApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CreateSolutionResponse",
+            '404': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -184,8 +186,8 @@ class SolutionApi:
     @validate_call
     def create_solution_without_preload_content(
         self,
-        match_id: Annotated[StrictStr, Field(description="競技のID")],
-        variable: Annotated[List[Union[StrictFloat, StrictInt]], Field(description="解空間の変数")],
+        match_id: Annotated[StrictStr, Field(description="Match ID")],
+        variable: Annotated[List[Union[StrictFloat, StrictInt]], Field(description="Solution space variable")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -199,12 +201,12 @@ class SolutionApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """解の作成
+        """Create solution
 
 
-        :param match_id: 競技のID (required)
+        :param match_id: Match ID (required)
         :type match_id: str
-        :param variable: 解空間の変数 (required)
+        :param variable: Solution space variable (required)
         :type variable: List[float]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -239,6 +241,7 @@ class SolutionApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CreateSolutionResponse",
+            '404': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -318,9 +321,9 @@ class SolutionApi:
     @validate_call
     def get_solution(
         self,
-        match_id: Annotated[StrictStr, Field(description="競技のID")],
-        participant_id: Annotated[StrictStr, Field(description="参加者のID")],
-        trial_no: Annotated[StrictInt, Field(description="試行番号")],
+        match_id: Annotated[StrictStr, Field(description="Match ID")],
+        participant_id: Annotated[StrictStr, Field(description="Participant ID")],
+        trial_no: Annotated[StrictInt, Field(description="Trial number")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -334,14 +337,14 @@ class SolutionApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> Solution:
-        """解の取得
+        """Retrive solution
 
 
-        :param match_id: 競技のID (required)
+        :param match_id: Match ID (required)
         :type match_id: str
-        :param participant_id: 参加者のID (required)
+        :param participant_id: Participant ID (required)
         :type participant_id: str
-        :param trial_no: 試行番号 (required)
+        :param trial_no: Trial number (required)
         :type trial_no: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -377,6 +380,7 @@ class SolutionApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "Solution",
+            '404': "GetSolutionError",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -392,9 +396,9 @@ class SolutionApi:
     @validate_call
     def get_solution_with_http_info(
         self,
-        match_id: Annotated[StrictStr, Field(description="競技のID")],
-        participant_id: Annotated[StrictStr, Field(description="参加者のID")],
-        trial_no: Annotated[StrictInt, Field(description="試行番号")],
+        match_id: Annotated[StrictStr, Field(description="Match ID")],
+        participant_id: Annotated[StrictStr, Field(description="Participant ID")],
+        trial_no: Annotated[StrictInt, Field(description="Trial number")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -408,14 +412,14 @@ class SolutionApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[Solution]:
-        """解の取得
+        """Retrive solution
 
 
-        :param match_id: 競技のID (required)
+        :param match_id: Match ID (required)
         :type match_id: str
-        :param participant_id: 参加者のID (required)
+        :param participant_id: Participant ID (required)
         :type participant_id: str
-        :param trial_no: 試行番号 (required)
+        :param trial_no: Trial number (required)
         :type trial_no: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -451,6 +455,7 @@ class SolutionApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "Solution",
+            '404': "GetSolutionError",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -466,9 +471,9 @@ class SolutionApi:
     @validate_call
     def get_solution_without_preload_content(
         self,
-        match_id: Annotated[StrictStr, Field(description="競技のID")],
-        participant_id: Annotated[StrictStr, Field(description="参加者のID")],
-        trial_no: Annotated[StrictInt, Field(description="試行番号")],
+        match_id: Annotated[StrictStr, Field(description="Match ID")],
+        participant_id: Annotated[StrictStr, Field(description="Participant ID")],
+        trial_no: Annotated[StrictInt, Field(description="Trial number")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -482,14 +487,14 @@ class SolutionApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """解の取得
+        """Retrive solution
 
 
-        :param match_id: 競技のID (required)
+        :param match_id: Match ID (required)
         :type match_id: str
-        :param participant_id: 参加者のID (required)
+        :param participant_id: Participant ID (required)
         :type participant_id: str
-        :param trial_no: 試行番号 (required)
+        :param trial_no: Trial number (required)
         :type trial_no: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -525,6 +530,7 @@ class SolutionApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "Solution",
+            '404': "GetSolutionError",
         }
         response_data = self.api_client.call_api(
             *_param,

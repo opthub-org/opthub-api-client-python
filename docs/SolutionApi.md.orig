@@ -1,17 +1,17 @@
-# opthub_api_client.MatchApi
+# opthub_api_client.SolutionApi
 
 All URIs are relative to *https://example.com/todo/opthub-api-endpoint*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**resolve_match_alias_by_id**](MatchApi.md#resolve_match_alias_by_id) | **GET** /competition/match/{matchId}/alias | Retrieve the match alias from the match ID
-[**resolve_match_id_by_alias**](MatchApi.md#resolve_match_id_by_alias) | **GET** /competition/match/alias/{alias} | Retrieve the match ID from the match alias
+[**create_solution**](SolutionApi.md#create_solution) | **POST** /competition/match/{matchId}/solution | Create solution
+[**get_solution**](SolutionApi.md#get_solution) | **GET** /competition/match/{matchId}/solution | Retrive solution
 
 
-# **resolve_match_alias_by_id**
-> str resolve_match_alias_by_id(match_id)
+# **create_solution**
+> CreateSolutionResponse create_solution(match_id, variable)
 
-Retrieve the match alias from the match ID
+Create solution
 
 ### Example
 
@@ -19,6 +19,7 @@ Retrieve the match alias from the match ID
 
 ```python
 import opthub_api_client
+from opthub_api_client.models.create_solution_response import CreateSolutionResponse
 from opthub_api_client.rest import ApiException
 from pprint import pprint
 
@@ -42,16 +43,17 @@ configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 # Enter a context with an instance of the API client
 with opthub_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = opthub_api_client.MatchApi(api_client)
+    api_instance = opthub_api_client.SolutionApi(api_client)
     match_id = '5d7fc778-3e59-4128-a797-2e423c0aa461' # str | Match ID
+    variable = [[1.234,-5.678,9.1011]] # List[float] | Solution space variable
 
     try:
-        # Retrieve the match alias from the match ID
-        api_response = api_instance.resolve_match_alias_by_id(match_id)
-        print("The response of MatchApi->resolve_match_alias_by_id:\n")
+        # Create solution
+        api_response = api_instance.create_solution(match_id, variable)
+        print("The response of SolutionApi->create_solution:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling MatchApi->resolve_match_alias_by_id: %s\n" % e)
+        print("Exception when calling SolutionApi->create_solution: %s\n" % e)
 ```
 
 
@@ -62,10 +64,11 @@ with opthub_api_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **match_id** | **str**| Match ID | 
+ **variable** | [**List[float]**](float.md)| Solution space variable | 
 
 ### Return type
 
-**str**
+[**CreateSolutionResponse**](CreateSolutionResponse.md)
 
 ### Authorization
 
@@ -80,15 +83,15 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Match alias |  -  |
+**200** | Information of the created solution |  -  |
 **404** | Match ID not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **resolve_match_id_by_alias**
-> str resolve_match_id_by_alias(alias)
+# **get_solution**
+> Solution get_solution(match_id, participant_id, trial_no)
 
-Retrieve the match ID from the match alias
+Retrive solution
 
 ### Example
 
@@ -96,6 +99,7 @@ Retrieve the match ID from the match alias
 
 ```python
 import opthub_api_client
+from opthub_api_client.models.solution import Solution
 from opthub_api_client.rest import ApiException
 from pprint import pprint
 
@@ -119,16 +123,18 @@ configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 # Enter a context with an instance of the API client
 with opthub_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = opthub_api_client.MatchApi(api_client)
-    alias = 'match123' # str | Match alias
+    api_instance = opthub_api_client.SolutionApi(api_client)
+    match_id = '5d7fc778-3e59-4128-a797-2e423c0aa461' # str | Match ID
+    participant_id = '912f548d-2bbe-48ab-90ce-e96dae38377d' # str | Participant ID
+    trial_no = 4 # int | Trial number
 
     try:
-        # Retrieve the match ID from the match alias
-        api_response = api_instance.resolve_match_id_by_alias(alias)
-        print("The response of MatchApi->resolve_match_id_by_alias:\n")
+        # Retrive solution
+        api_response = api_instance.get_solution(match_id, participant_id, trial_no)
+        print("The response of SolutionApi->get_solution:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling MatchApi->resolve_match_id_by_alias: %s\n" % e)
+        print("Exception when calling SolutionApi->get_solution: %s\n" % e)
 ```
 
 
@@ -138,11 +144,13 @@ with opthub_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **alias** | **str**| Match alias | 
+ **match_id** | **str**| Match ID | 
+ **participant_id** | **str**| Participant ID | 
+ **trial_no** | **int**| Trial number | 
 
 ### Return type
 
-**str**
+[**Solution**](Solution.md)
 
 ### Authorization
 
@@ -157,8 +165,8 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Match ID |  -  |
-**404** | Match alias not found |  -  |
+**200** | Information of the solution |  -  |
+**404** | The created solution specified in the query was not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

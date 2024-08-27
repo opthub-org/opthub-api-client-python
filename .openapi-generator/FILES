@@ -7,6 +7,7 @@ README.md
 docs/AliasApi.md
 docs/CompetitionApi.md
 docs/CreateSolutionResponse.md
+docs/GetSolutionError.md
 docs/MatchApi.md
 docs/Participant.md
 docs/ParticipantType.md
@@ -25,6 +26,7 @@ opthub_api_client/configuration.py
 opthub_api_client/exceptions.py
 opthub_api_client/models/__init__.py
 opthub_api_client/models/create_solution_response.py
+opthub_api_client/models/get_solution_error.py
 opthub_api_client/models/participant.py
 opthub_api_client/models/participant_type.py
 opthub_api_client/models/solution.py
@@ -39,6 +41,7 @@ test/__init__.py
 test/test_alias_api.py
 test/test_competition_api.py
 test/test_create_solution_response.py
+test/test_get_solution_error.py
 test/test_match_api.py
 test/test_participant.py
 test/test_participant_type.py

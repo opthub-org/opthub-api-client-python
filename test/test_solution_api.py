@@ -3,7 +3,7 @@
 """
     OptHub REST API
 
-    OptHubの公開REST APIです。
+    OptHub Public REST API.
 
     The version of the OpenAPI document: 0.1.0
     Contact: dev@opthub.ai
@@ -30,14 +30,14 @@ class TestSolutionApi(unittest.TestCase):
     def test_create_solution(self) -> None:
         """Test case for create_solution
 
-        解の作成
+        Create solution
         """
         pass
 
     def test_get_solution(self) -> None:
         """Test case for get_solution
 
-        解の取得
+        Retrive solution
         """
         pass
 
