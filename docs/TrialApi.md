@@ -1,16 +1,16 @@
-# opthub_api_client.ParticipantApi
+# opthub_api_client.TrialApi
 
 All URIs are relative to *https://example.com/todo/opthub-api-endpoint*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_participant**](ParticipantApi.md#get_participant) | **GET** /participant/{id} | Retrieve the participant information
+[**get_match_trial**](TrialApi.md#get_match_trial) | **GET** /matches/{match_uuid}/trials/{trial_no} | Retrieve status of a specific Trial related to the Solution submitted by the Participant themselves.
 
 
-# **get_participant**
-> Participant get_participant(id)
+# **get_match_trial**
+> MatchTrialStatus get_match_trial(match_uuid, trial_no)
 
-Retrieve the participant information
+Retrieve status of a specific Trial related to the Solution submitted by the Participant themselves.
 
 ### Example
 
@@ -18,7 +18,7 @@ Retrieve the participant information
 
 ```python
 import opthub_api_client
-from opthub_api_client.models.participant import Participant
+from opthub_api_client.models.match_trial_status import MatchTrialStatus
 from opthub_api_client.rest import ApiException
 from pprint import pprint
 
@@ -42,16 +42,17 @@ configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 # Enter a context with an instance of the API client
 with opthub_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = opthub_api_client.ParticipantApi(api_client)
-    id = '912f548d-2bbe-48ab-90ce-e96dae38377d' # str | Participant ID
+    api_instance = opthub_api_client.TrialApi(api_client)
+    match_uuid = '5d7fc778-3e59-4128-a797-2e423c0aa461' # str | Match UUID
+    trial_no = 4 # int | Trial number
 
     try:
-        # Retrieve the participant information
-        api_response = api_instance.get_participant(id)
-        print("The response of ParticipantApi->get_participant:\n")
+        # Retrieve status of a specific Trial related to the Solution submitted by the Participant themselves.
+        api_response = api_instance.get_match_trial(match_uuid, trial_no)
+        print("The response of TrialApi->get_match_trial:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling ParticipantApi->get_participant: %s\n" % e)
+        print("Exception when calling TrialApi->get_match_trial: %s\n" % e)
 ```
 
 
@@ -61,11 +62,12 @@ with opthub_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Participant ID | 
+ **match_uuid** | **str**| Match UUID | 
+ **trial_no** | **int**| Trial number | 
 
 ### Return type
 
-[**Participant**](Participant.md)
+[**MatchTrialStatus**](MatchTrialStatus.md)
 
 ### Authorization
 
@@ -80,8 +82,8 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Participant information |  -  |
-**404** | Participant not found |  -  |
+**200** | Status information of the Trial |  -  |
+**404** | The trial specified in the query was not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

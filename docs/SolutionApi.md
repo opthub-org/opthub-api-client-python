@@ -4,12 +4,12 @@ All URIs are relative to *https://example.com/todo/opthub-api-endpoint*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_solution**](SolutionApi.md#create_solution) | **POST** /competition/match/{matchId}/solution | Create solution
-[**get_solution**](SolutionApi.md#get_solution) | **GET** /competition/match/{matchId}/solution | Retrive solution
+[**create_solution**](SolutionApi.md#create_solution) | **POST** /matches/{match_uuid}/solutions | Create solution
+[**get_solution**](SolutionApi.md#get_solution) | **GET** /matches/{match_uuid}/trials/{trial_no}/solution | Retrieve a solution submitted by the participant themselves.
 
 
 # **create_solution**
-> CreateSolutionResponse create_solution(match_id, variable)
+> CreateSolutionResponse create_solution(match_uuid, request_body=request_body)
 
 Create solution
 
@@ -44,12 +44,12 @@ configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 with opthub_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = opthub_api_client.SolutionApi(api_client)
-    match_id = '5d7fc778-3e59-4128-a797-2e423c0aa461' # str | Match ID
-    variable = [1.234,-5.678,9.1011] # List[float] | Solution space variable
+    match_uuid = '5d7fc778-3e59-4128-a797-2e423c0aa461' # str | Match UUID
+    request_body = [3.4] # List[float] |  (optional)
 
     try:
         # Create solution
-        api_response = api_instance.create_solution(match_id, variable)
+        api_response = api_instance.create_solution(match_uuid, request_body=request_body)
         print("The response of SolutionApi->create_solution:\n")
         pprint(api_response)
     except Exception as e:
@@ -63,8 +63,8 @@ with opthub_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **match_id** | **str**| Match ID | 
- **variable** | [**List[float]**](float.md)| Solution space variable | 
+ **match_uuid** | **str**| Match UUID | 
+ **request_body** | [**List[float]**](float.md)|  | [optional] 
 
 ### Return type
 
@@ -76,22 +76,22 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Information of the created solution |  -  |
-**404** | Match not found |  -  |
+**200** | Information of the created Solution |  -  |
+**404** | No such Match UUID |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_solution**
-> Solution get_solution(match_id, participant_id, trial_no)
+> Solution get_solution(match_uuid, trial_no)
 
-Retrive solution
+Retrieve a solution submitted by the participant themselves.
 
 ### Example
 
@@ -124,13 +124,12 @@ configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 with opthub_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = opthub_api_client.SolutionApi(api_client)
-    match_id = '5d7fc778-3e59-4128-a797-2e423c0aa461' # str | Match ID
-    participant_id = '912f548d-2bbe-48ab-90ce-e96dae38377d' # str | Participant ID
+    match_uuid = '5d7fc778-3e59-4128-a797-2e423c0aa461' # str | Match UUID
     trial_no = 4 # int | Trial number
 
     try:
-        # Retrive solution
-        api_response = api_instance.get_solution(match_id, participant_id, trial_no)
+        # Retrieve a solution submitted by the participant themselves.
+        api_response = api_instance.get_solution(match_uuid, trial_no)
         print("The response of SolutionApi->get_solution:\n")
         pprint(api_response)
     except Exception as e:
@@ -144,8 +143,7 @@ with opthub_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **match_id** | **str**| Match ID | 
- **participant_id** | **str**| Participant ID | 
+ **match_uuid** | **str**| Match UUID | 
  **trial_no** | **int**| Trial number | 
 
 ### Return type
@@ -165,8 +163,8 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Information of the solution |  -  |
-**404** | The created solution specified in the query was not found |  -  |
+**200** | Information of the Solution |  -  |
+**404** | The trial specified in the query was not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

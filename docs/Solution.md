@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **variable** | **List[float]** | Solution space variable | 
 **created_at** | **datetime** | Creation date and time | 
-**user_id** | **str** | ID of the user who created it | [optional] 
+**created_by** | **str** | User UUID | 
 
 ## Example
 

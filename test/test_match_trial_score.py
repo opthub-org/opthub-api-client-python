@@ -15,10 +15,10 @@
 
 import unittest
 
-from opthub_api_client.models.solution import Solution
+from opthub_api_client.models.match_trial_score import MatchTrialScore
 
-class TestSolution(unittest.TestCase):
-    """Solution unit test stubs"""
+class TestMatchTrialScore(unittest.TestCase):
+    """MatchTrialScore unit test stubs"""
 
     def setUp(self):
         pass
@@ -26,30 +26,30 @@ class TestSolution(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> Solution:
-        """Test Solution
+    def make_instance(self, include_optional) -> MatchTrialScore:
+        """Test MatchTrialScore
             include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `Solution`
+        # uncomment below to create an instance of `MatchTrialScore`
         """
-        model = Solution()
+        model = MatchTrialScore()
         if include_optional:
-            return Solution(
-                variable = [1.234,-5.678,9.1011],
-                created_at = '2024-08-06T10:11:45.789Z',
-                created_by = '1e892e70-47ba-4c8e-8563-6aea9019e334'
+            return MatchTrialScore(
+                value = 15.1617,
+                started_at = '2024-08-29T10:56:02.933Z',
+                finished_at = '2024-08-29T11:01:21.319Z',
+                error = '',
+                status = 'Success'
             )
         else:
-            return Solution(
-                variable = [1.234,-5.678,9.1011],
-                created_at = '2024-08-06T10:11:45.789Z',
-                created_by = '1e892e70-47ba-4c8e-8563-6aea9019e334',
+            return MatchTrialScore(
+                status = 'Success',
         )
         """
 
-    def testSolution(self):
-        """Test Solution"""
+    def testMatchTrialScore(self):
+        """Test MatchTrialScore"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

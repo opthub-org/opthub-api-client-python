@@ -20,18 +20,21 @@ import json
 
 from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List, Union
+from typing import Any, ClassVar, Dict, List, Optional, Union
+from opthub_api_client.models.runner_status import RunnerStatus
 from typing import Optional, Set
 from typing_extensions import Self
 
-class Solution(BaseModel):
+class MatchTrialScore(BaseModel):
     """
-    Solution information
+    Results of Score calculation
     """ # noqa: E501
-    variable: List[Union[StrictFloat, StrictInt]] = Field(description="Solution space variable")
-    created_at: datetime = Field(description="Creation date and time")
-    created_by: StrictStr = Field(description="User UUID")
-    __properties: ClassVar[List[str]] = ["variable", "created_at", "created_by"]
+    value: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="The value of the Score")
+    started_at: Optional[datetime] = Field(default=None, description="Score calculation start date and time")
+    finished_at: Optional[datetime] = Field(default=None, description="Score calculation end date and time")
+    error: Optional[StrictStr] = Field(default=None, description="Score calculation error information")
+    status: RunnerStatus
+    __properties: ClassVar[List[str]] = ["value", "started_at", "finished_at", "error", "status"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -51,7 +54,7 @@ class Solution(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of Solution from a JSON string"""
+        """Create an instance of MatchTrialScore from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -76,7 +79,7 @@ class Solution(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of Solution from a dict"""
+        """Create an instance of MatchTrialScore from a dict"""
         if obj is None:
             return None
 
@@ -84,9 +87,11 @@ class Solution(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "variable": obj.get("variable"),
-            "created_at": obj.get("created_at"),
-            "created_by": obj.get("created_by")
+            "value": obj.get("value"),
+            "started_at": obj.get("started_at"),
+            "finished_at": obj.get("finished_at"),
+            "error": obj.get("error"),
+            "status": obj.get("status")
         })
         return _obj
 

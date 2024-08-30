@@ -1,12 +1,11 @@
 # CreateSolutionResponse
 
-Information of the created solution
+Information of the created Solution
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**participant_id** | **str** | Participant ID | 
 **trial_no** | **int** | Trial number | 
 
 ## Example
