@@ -100,6 +100,7 @@ class SolutionApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CreateSolutionResponse",
+            '400': None,
             '404': None,
         }
         response_data = self.api_client.call_api(
@@ -171,6 +172,7 @@ class SolutionApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CreateSolutionResponse",
+            '400': None,
             '404': None,
         }
         response_data = self.api_client.call_api(
@@ -242,6 +244,7 @@ class SolutionApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CreateSolutionResponse",
+            '400': None,
             '404': None,
         }
         response_data = self.api_client.call_api(

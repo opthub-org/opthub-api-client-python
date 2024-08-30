@@ -85,6 +85,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Information of the created Solution |  -  |
+**400** | Invalid format. The solution variable&#39;s JSON object must contain either a scalar or a vector, but not both. |  -  |
 **404** | No such Match UUID |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
