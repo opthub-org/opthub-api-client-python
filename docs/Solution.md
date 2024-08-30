@@ -6,7 +6,7 @@ Solution information
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**variable** | **List[float]** | Solution space variable | 
+**variable** | [**Variable**](Variable.md) |  | 
 **created_at** | **datetime** | Creation date and time | 
 **created_by** | **str** | User UUID | 
 

@@ -6,8 +6,8 @@ Evaluation results
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**objective** | **List[float]** | The value of the objective function | [optional] 
-**constraint** | **object** | The value of the constraint condition | [optional] 
+**objective** | [**Variable**](Variable.md) |  | [optional] 
+**constraint** | **List[float]** | A double-precision floating-point vector. | [optional] 
 **feasible** | **bool** | Whether it is a feasible solution | [optional] 
 **extra_info** | **object** | Auxiliary information for evaluation | [optional] 
 **started_at** | **datetime** | Evaluation start date and time | [optional] 

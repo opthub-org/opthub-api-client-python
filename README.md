@@ -78,11 +78,11 @@ with opthub_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = opthub_api_client.SolutionApi(api_client)
     match_uuid = '5d7fc778-3e59-4128-a797-2e423c0aa461' # str | Match UUID
-    request_body = [3.4] # List[float] |  (optional)
+    variable = opthub_api_client.Variable() # Variable |  (optional)
 
     try:
         # Create solution
-        api_response = api_instance.create_solution(match_uuid, request_body=request_body)
+        api_response = api_instance.create_solution(match_uuid, variable=variable)
         print("The response of SolutionApi->create_solution:\n")
         pprint(api_response)
     except ApiException as e:
@@ -111,6 +111,7 @@ Class | Method | HTTP request | Description
  - [MatchTrialStatusType](docs/MatchTrialStatusType.md)
  - [RunnerStatus](docs/RunnerStatus.md)
  - [Solution](docs/Solution.md)
+ - [Variable](docs/Variable.md)
 
 
 <a id="documentation-for-authorization"></a>

@@ -15,10 +15,10 @@
 
 import unittest
 
-from opthub_api_client.models.solution import Solution
+from opthub_api_client.models.variable import Variable
 
-class TestSolution(unittest.TestCase):
-    """Solution unit test stubs"""
+class TestVariable(unittest.TestCase):
+    """Variable unit test stubs"""
 
     def setUp(self):
         pass
@@ -26,30 +26,24 @@ class TestSolution(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> Solution:
-        """Test Solution
+    def make_instance(self, include_optional) -> Variable:
+        """Test Variable
             include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `Solution`
+        # uncomment below to create an instance of `Variable`
         """
-        model = Solution()
+        model = Variable()
         if include_optional:
-            return Solution(
-                variable = None,
-                created_at = '2024-08-06T10:11:45.789Z',
-                created_by = '1e892e70-47ba-4c8e-8563-6aea9019e334'
+            return Variable(
             )
         else:
-            return Solution(
-                variable = None,
-                created_at = '2024-08-06T10:11:45.789Z',
-                created_by = '1e892e70-47ba-4c8e-8563-6aea9019e334',
+            return Variable(
         )
         """
 
-    def testSolution(self):
-        """Test Solution"""
+    def testVariable(self):
+        """Test Variable"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

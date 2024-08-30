@@ -22,6 +22,7 @@ from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictFloat, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from opthub_api_client.models.runner_status import RunnerStatus
+from opthub_api_client.models.variable import Variable
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -29,8 +30,8 @@ class MatchTrialEvaluation(BaseModel):
     """
     Evaluation results
     """ # noqa: E501
-    objective: Optional[List[Union[StrictFloat, StrictInt]]] = Field(default=None, description="The value of the objective function")
-    constraint: Optional[Dict[str, Any]] = Field(default=None, description="The value of the constraint condition")
+    objective: Optional[Variable] = None
+    constraint: Optional[List[Union[StrictFloat, StrictInt]]] = Field(default=None, description="A double-precision floating-point vector.")
     feasible: Optional[StrictBool] = Field(default=None, description="Whether it is a feasible solution")
     extra_info: Optional[Dict[str, Any]] = Field(default=None, description="Auxiliary information for evaluation")
     started_at: Optional[datetime] = Field(default=None, description="Evaluation start date and time")
@@ -78,6 +79,9 @@ class MatchTrialEvaluation(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of objective
+        if self.objective:
+            _dict['objective'] = self.objective.to_dict()
         return _dict
 
     @classmethod
@@ -90,7 +94,7 @@ class MatchTrialEvaluation(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "objective": obj.get("objective"),
+            "objective": Variable.from_dict(obj["objective"]) if obj.get("objective") is not None else None,
             "constraint": obj.get("constraint"),
             "feasible": obj.get("feasible"),
             "extra_info": obj.get("extra_info"),

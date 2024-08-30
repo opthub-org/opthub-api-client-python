@@ -19,8 +19,9 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List, Union
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from typing import Any, ClassVar, Dict, List
+from opthub_api_client.models.variable import Variable
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,7 +29,7 @@ class Solution(BaseModel):
     """
     Solution information
     """ # noqa: E501
-    variable: List[Union[StrictFloat, StrictInt]] = Field(description="Solution space variable")
+    variable: Variable
     created_at: datetime = Field(description="Creation date and time")
     created_by: StrictStr = Field(description="User UUID")
     __properties: ClassVar[List[str]] = ["variable", "created_at", "created_by"]
@@ -72,6 +73,9 @@ class Solution(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of variable
+        if self.variable:
+            _dict['variable'] = self.variable.to_dict()
         return _dict
 
     @classmethod
@@ -84,7 +88,7 @@ class Solution(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "variable": obj.get("variable"),
+            "variable": Variable.from_dict(obj["variable"]) if obj.get("variable") is not None else None,
             "created_at": obj.get("created_at"),
             "created_by": obj.get("created_by")
         })

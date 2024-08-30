@@ -23,3 +23,4 @@ from opthub_api_client.models.match_trial_status import MatchTrialStatus
 from opthub_api_client.models.match_trial_status_type import MatchTrialStatusType
 from opthub_api_client.models.runner_status import RunnerStatus
 from opthub_api_client.models.solution import Solution
+from opthub_api_client.models.variable import Variable

@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **create_solution**
-> CreateSolutionResponse create_solution(match_uuid, request_body=request_body)
+> CreateSolutionResponse create_solution(match_uuid, variable=variable)
 
 Create solution
 
@@ -20,6 +20,7 @@ Create solution
 ```python
 import opthub_api_client
 from opthub_api_client.models.create_solution_response import CreateSolutionResponse
+from opthub_api_client.models.variable import Variable
 from opthub_api_client.rest import ApiException
 from pprint import pprint
 
@@ -45,11 +46,11 @@ with opthub_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = opthub_api_client.SolutionApi(api_client)
     match_uuid = '5d7fc778-3e59-4128-a797-2e423c0aa461' # str | Match UUID
-    request_body = [3.4] # List[float] |  (optional)
+    variable = opthub_api_client.Variable() # Variable |  (optional)
 
     try:
         # Create solution
-        api_response = api_instance.create_solution(match_uuid, request_body=request_body)
+        api_response = api_instance.create_solution(match_uuid, variable=variable)
         print("The response of SolutionApi->create_solution:\n")
         pprint(api_response)
     except Exception as e:
@@ -64,7 +65,7 @@ with opthub_api_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **match_uuid** | **str**| Match UUID | 
- **request_body** | [**List[float]**](float.md)|  | [optional] 
+ **variable** | [**Variable**](Variable.md)|  | [optional] 
 
 ### Return type
 

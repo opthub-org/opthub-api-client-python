@@ -17,11 +17,12 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import Field, StrictFloat, StrictInt, StrictStr
-from typing import List, Optional, Union
+from pydantic import Field, StrictInt, StrictStr
+from typing import Optional
 from typing_extensions import Annotated
 from opthub_api_client.models.create_solution_response import CreateSolutionResponse
 from opthub_api_client.models.solution import Solution
+from opthub_api_client.models.variable import Variable
 
 from opthub_api_client.api_client import ApiClient, RequestSerialized
 from opthub_api_client.api_response import ApiResponse
@@ -45,7 +46,7 @@ class SolutionApi:
     def create_solution(
         self,
         match_uuid: Annotated[StrictStr, Field(description="Match UUID")],
-        request_body: Optional[List[Union[StrictFloat, StrictInt]]] = None,
+        variable: Optional[Variable] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -64,8 +65,8 @@ class SolutionApi:
 
         :param match_uuid: Match UUID (required)
         :type match_uuid: str
-        :param request_body:
-        :type request_body: List[float]
+        :param variable:
+        :type variable: Variable
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -90,7 +91,7 @@ class SolutionApi:
 
         _param = self._create_solution_serialize(
             match_uuid=match_uuid,
-            request_body=request_body,
+            variable=variable,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -116,7 +117,7 @@ class SolutionApi:
     def create_solution_with_http_info(
         self,
         match_uuid: Annotated[StrictStr, Field(description="Match UUID")],
-        request_body: Optional[List[Union[StrictFloat, StrictInt]]] = None,
+        variable: Optional[Variable] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -135,8 +136,8 @@ class SolutionApi:
 
         :param match_uuid: Match UUID (required)
         :type match_uuid: str
-        :param request_body:
-        :type request_body: List[float]
+        :param variable:
+        :type variable: Variable
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -161,7 +162,7 @@ class SolutionApi:
 
         _param = self._create_solution_serialize(
             match_uuid=match_uuid,
-            request_body=request_body,
+            variable=variable,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -187,7 +188,7 @@ class SolutionApi:
     def create_solution_without_preload_content(
         self,
         match_uuid: Annotated[StrictStr, Field(description="Match UUID")],
-        request_body: Optional[List[Union[StrictFloat, StrictInt]]] = None,
+        variable: Optional[Variable] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -206,8 +207,8 @@ class SolutionApi:
 
         :param match_uuid: Match UUID (required)
         :type match_uuid: str
-        :param request_body:
-        :type request_body: List[float]
+        :param variable:
+        :type variable: Variable
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -232,7 +233,7 @@ class SolutionApi:
 
         _param = self._create_solution_serialize(
             match_uuid=match_uuid,
-            request_body=request_body,
+            variable=variable,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -253,7 +254,7 @@ class SolutionApi:
     def _create_solution_serialize(
         self,
         match_uuid,
-        request_body,
+        variable,
         _request_auth,
         _content_type,
         _headers,
@@ -263,7 +264,6 @@ class SolutionApi:
         _host = None
 
         _collection_formats: Dict[str, str] = {
-            'request_body': '',
         }
 
         _path_params: Dict[str, str] = {}
@@ -280,8 +280,8 @@ class SolutionApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if request_body is not None:
-            _body_params = request_body
+        if variable is not None:
+            _body_params = variable
 
 
         # set the HTTP header `Accept`

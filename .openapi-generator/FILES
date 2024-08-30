@@ -14,6 +14,7 @@ docs/RunnerStatus.md
 docs/Solution.md
 docs/SolutionApi.md
 docs/TrialApi.md
+docs/Variable.md
 git_push.sh
 opthub_api_client/__init__.py
 opthub_api_client/api/__init__.py
@@ -32,6 +33,7 @@ opthub_api_client/models/match_trial_status.py
 opthub_api_client/models/match_trial_status_type.py
 opthub_api_client/models/runner_status.py
 opthub_api_client/models/solution.py
+opthub_api_client/models/variable.py
 opthub_api_client/py.typed
 opthub_api_client/rest.py
 pyproject.toml
@@ -50,4 +52,5 @@ test/test_runner_status.py
 test/test_solution.py
 test/test_solution_api.py
 test/test_trial_api.py
+test/test_variable.py
 tox.ini
