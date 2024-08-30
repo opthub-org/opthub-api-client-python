@@ -6,7 +6,7 @@ Match Trial status information
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**match_trial_status_type** | [**MatchTrialStatusType**](MatchTrialStatusType.md) |  | [optional] 
+**type** | [**MatchTrialStatusType**](MatchTrialStatusType.md) |  | 
 **evaluation** | [**MatchTrialEvaluation**](MatchTrialEvaluation.md) |  | [optional] 
 **score** | [**MatchTrialScore**](MatchTrialScore.md) |  | [optional] 
 

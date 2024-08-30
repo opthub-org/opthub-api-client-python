@@ -30,10 +30,10 @@ class MatchTrialStatus(BaseModel):
     """
     Match Trial status information
     """ # noqa: E501
-    match_trial_status_type: Optional[MatchTrialStatusType] = None
+    type: MatchTrialStatusType
     evaluation: Optional[MatchTrialEvaluation] = None
     score: Optional[MatchTrialScore] = None
-    __properties: ClassVar[List[str]] = ["match_trial_status_type", "evaluation", "score"]
+    __properties: ClassVar[List[str]] = ["type", "evaluation", "score"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -92,7 +92,7 @@ class MatchTrialStatus(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "match_trial_status_type": obj.get("match_trial_status_type"),
+            "type": obj.get("type"),
             "evaluation": MatchTrialEvaluation.from_dict(obj["evaluation"]) if obj.get("evaluation") is not None else None,
             "score": MatchTrialScore.from_dict(obj["score"]) if obj.get("score") is not None else None
         })

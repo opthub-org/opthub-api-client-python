@@ -36,7 +36,7 @@ class TestMatchTrialStatus(unittest.TestCase):
         model = MatchTrialStatus()
         if include_optional:
             return MatchTrialStatus(
-                match_trial_status_type = 'Success',
+                type = 'Success',
                 evaluation = opthub_api_client.models.match_trial_evaluation.MatchTrialEvaluation(
                     objective = [12.1314], 
                     constraint = opthub_api_client.models.constraint.constraint(), 
@@ -55,6 +55,7 @@ class TestMatchTrialStatus(unittest.TestCase):
             )
         else:
             return MatchTrialStatus(
+                type = 'Success',
         )
         """
 
