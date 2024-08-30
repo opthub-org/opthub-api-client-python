@@ -36,6 +36,8 @@ class TestVariable(unittest.TestCase):
         model = Variable()
         if include_optional:
             return Variable(
+                vector = [1.234,-5.678,9.1011],
+                scalar = -12.1314
             )
         else:
             return Variable(

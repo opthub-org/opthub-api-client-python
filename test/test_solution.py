@@ -36,13 +36,13 @@ class TestSolution(unittest.TestCase):
         model = Solution()
         if include_optional:
             return Solution(
-                variable = None,
+                variable = {vector: [1.234, -5.678, 9.1011]},
                 created_at = '2024-08-06T10:11:45.789Z',
                 created_by = '1e892e70-47ba-4c8e-8563-6aea9019e334'
             )
         else:
             return Solution(
-                variable = None,
+                variable = {vector: [1.234, -5.678, 9.1011]},
                 created_at = '2024-08-06T10:11:45.789Z',
                 created_by = '1e892e70-47ba-4c8e-8563-6aea9019e334',
         )

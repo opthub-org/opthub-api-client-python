@@ -36,7 +36,7 @@ class TestMatchTrialEvaluation(unittest.TestCase):
         model = MatchTrialEvaluation()
         if include_optional:
             return MatchTrialEvaluation(
-                objective = None,
+                objective = {vector: [1.234, -5.678, 9.1011]},
                 constraint = [1.234,-5.678,9.1011],
                 feasible = True,
                 extra_info = opthub_api_client.models.extra_info.extra_info(),

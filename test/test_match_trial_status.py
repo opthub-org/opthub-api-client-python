@@ -38,7 +38,7 @@ class TestMatchTrialStatus(unittest.TestCase):
             return MatchTrialStatus(
                 type = 'Success',
                 evaluation = opthub_api_client.models.match_trial_evaluation.MatchTrialEvaluation(
-                    objective = null, 
+                    objective = {vector: [1.234, -5.678, 9.1011]}, 
                     constraint = [1.234,-5.678,9.1011], 
                     feasible = True, 
                     extra_info = opthub_api_client.models.extra_info.extra_info(), 

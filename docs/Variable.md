@@ -6,6 +6,8 @@ A double-precision floating-point scalar or vector.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**vector** | **List[float]** | A double-precision floating-point vector. | [optional] 
+**scalar** | **float** | A double-precision floating-point scalar value | [optional] 
 
 ## Example
 
