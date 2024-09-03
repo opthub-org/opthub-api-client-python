@@ -1,12 +1,12 @@
-# MatchTrialNotFound
+# AuthErrorCode
 
-The reason why the trial was not found.
+Authentication error code
 
 ## Enum
 
-* `INVALIDMATCHUUID` (value: `'InvalidMatchUuid'`)
+* `APIKEYMISSING` (value: `'APIKeyMissing'`)
 
-* `NOSUCHTRIALNO` (value: `'NoSuchTrialNo'`)
+* `INVALIDAPIKEY` (value: `'InvalidAPIKey'`)
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

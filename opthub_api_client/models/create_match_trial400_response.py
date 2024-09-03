@@ -18,27 +18,28 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
-from opthub_api_client.models.runner_status import RunnerStatus
-from opthub_api_client.models.scalar_or_vector import ScalarOrVector
 from typing import Optional, Set
 from typing_extensions import Self
 
-class MatchTrialEvaluation(BaseModel):
+class CreateMatchTrial400Response(BaseModel):
     """
-    Evaluation results
+    CreateMatchTrial400Response
     """ # noqa: E501
-    status: RunnerStatus
-    error: Optional[StrictStr] = Field(default=None, description="Evaluation error information")
-    objective: Optional[ScalarOrVector] = None
-    constraint: Optional[ScalarOrVector] = None
-    info: Optional[Dict[str, Any]] = Field(default=None, description="Auxiliary information for evaluation")
-    feasible: Optional[StrictBool] = Field(default=None, description="Whether it is a feasible solution")
-    started_at: datetime = Field(description="Evaluation start date and time", alias="startedAt")
-    finished_at: datetime = Field(description="Evaluation end date and time", alias="finishedAt")
-    __properties: ClassVar[List[str]] = ["status", "error", "objective", "constraint", "info", "feasible", "startedAt", "finishedAt"]
+    code: Optional[StrictStr] = None
+    message: Optional[StrictStr] = None
+    __properties: ClassVar[List[str]] = ["code", "message"]
+
+    @field_validator('code')
+    def code_validate_enum(cls, value):
+        """Validates the enum"""
+        if value is None:
+            return value
+
+        if value not in set(['InvalidBodyFormat', 'InvalidParameters']):
+            raise ValueError("must be one of enum values ('InvalidBodyFormat', 'InvalidParameters')")
+        return value
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -58,7 +59,7 @@ class MatchTrialEvaluation(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of MatchTrialEvaluation from a JSON string"""
+        """Create an instance of CreateMatchTrial400Response from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -79,17 +80,11 @@ class MatchTrialEvaluation(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of objective
-        if self.objective:
-            _dict['objective'] = self.objective.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of constraint
-        if self.constraint:
-            _dict['constraint'] = self.constraint.to_dict()
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of MatchTrialEvaluation from a dict"""
+        """Create an instance of CreateMatchTrial400Response from a dict"""
         if obj is None:
             return None
 
@@ -97,14 +92,8 @@ class MatchTrialEvaluation(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "status": obj.get("status"),
-            "error": obj.get("error"),
-            "objective": ScalarOrVector.from_dict(obj["objective"]) if obj.get("objective") is not None else None,
-            "constraint": ScalarOrVector.from_dict(obj["constraint"]) if obj.get("constraint") is not None else None,
-            "info": obj.get("info"),
-            "feasible": obj.get("feasible"),
-            "startedAt": obj.get("startedAt"),
-            "finishedAt": obj.get("finishedAt")
+            "code": obj.get("code"),
+            "message": obj.get("message")
         })
         return _obj
 

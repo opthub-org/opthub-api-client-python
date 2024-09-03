@@ -1,4 +1,4 @@
-# Variable
+# ScalarOrVector
 
 A double-precision floating-point scalar or vector.
 
@@ -12,19 +12,19 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from opthub_api_client.models.variable import Variable
+from opthub_api_client.models.scalar_or_vector import ScalarOrVector
 
 # TODO update the JSON string below
 json = "{}"
-# create an instance of Variable from a JSON string
-variable_instance = Variable.from_json(json)
+# create an instance of ScalarOrVector from a JSON string
+scalar_or_vector_instance = ScalarOrVector.from_json(json)
 # print the JSON string representation of the object
-print(Variable.to_json())
+print(ScalarOrVector.to_json())
 
 # convert the object into a dict
-variable_dict = variable_instance.to_dict()
-# create an instance of Variable from a dict
-variable_from_dict = Variable.from_dict(variable_dict)
+scalar_or_vector_dict = scalar_or_vector_instance.to_dict()
+# create an instance of ScalarOrVector from a dict
+scalar_or_vector_from_dict = ScalarOrVector.from_dict(scalar_or_vector_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

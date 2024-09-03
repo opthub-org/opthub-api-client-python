@@ -6,14 +6,14 @@ Evaluation results
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**objective** | [**Variable**](Variable.md) |  | [optional] 
-**constraint** | **List[float]** | A double-precision floating-point vector. | [optional] 
-**feasible** | **bool** | Whether it is a feasible solution | [optional] 
-**extra_info** | **object** | Auxiliary information for evaluation | [optional] 
-**started_at** | **datetime** | Evaluation start date and time | [optional] 
-**finished_at** | **datetime** | Evaluation end date and time | [optional] 
-**error** | **str** | Evaluation error information | [optional] 
 **status** | [**RunnerStatus**](RunnerStatus.md) |  | 
+**error** | **str** | Evaluation error information | [optional] 
+**objective** | [**ScalarOrVector**](ScalarOrVector.md) |  | [optional] 
+**constraint** | [**ScalarOrVector**](ScalarOrVector.md) |  | [optional] 
+**info** | **object** | Auxiliary information for evaluation | [optional] 
+**feasible** | **bool** | Whether it is a feasible solution | [optional] 
+**started_at** | **datetime** | Evaluation start date and time | 
+**finished_at** | **datetime** | Evaluation end date and time | 
 
 ## Example
 

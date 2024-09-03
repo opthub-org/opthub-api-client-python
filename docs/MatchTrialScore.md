@@ -6,11 +6,11 @@ Results of Score calculation
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**value** | **float** | The value of the Score | [optional] 
-**started_at** | **datetime** | Score calculation start date and time | [optional] 
-**finished_at** | **datetime** | Score calculation end date and time | [optional] 
-**error** | **str** | Score calculation error information | [optional] 
 **status** | [**RunnerStatus**](RunnerStatus.md) |  | 
+**error** | **str** | Score calculation error information | [optional] 
+**value** | **float** | The value of the Score | [optional] 
+**started_at** | **datetime** | Score calculation start date and time | 
+**finished_at** | **datetime** | Score calculation end date and time | 
 
 ## Example
 

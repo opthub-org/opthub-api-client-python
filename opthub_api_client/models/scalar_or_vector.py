@@ -18,23 +18,18 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt
 from typing import Any, ClassVar, Dict, List, Optional, Union
-from opthub_api_client.models.runner_status import RunnerStatus
 from typing import Optional, Set
 from typing_extensions import Self
 
-class MatchTrialScore(BaseModel):
+class ScalarOrVector(BaseModel):
     """
-    Results of Score calculation
+    A double-precision floating-point scalar or vector.
     """ # noqa: E501
-    status: RunnerStatus
-    error: Optional[StrictStr] = Field(default=None, description="Score calculation error information")
-    value: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="The value of the Score")
-    started_at: datetime = Field(description="Score calculation start date and time", alias="startedAt")
-    finished_at: datetime = Field(description="Score calculation end date and time", alias="finishedAt")
-    __properties: ClassVar[List[str]] = ["status", "error", "value", "startedAt", "finishedAt"]
+    vector: Optional[List[Union[StrictFloat, StrictInt]]] = Field(default=None, description="A double-precision floating-point vector.")
+    scalar: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="A double-precision floating-point scalar value")
+    __properties: ClassVar[List[str]] = ["vector", "scalar"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -54,7 +49,7 @@ class MatchTrialScore(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of MatchTrialScore from a JSON string"""
+        """Create an instance of ScalarOrVector from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -79,7 +74,7 @@ class MatchTrialScore(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of MatchTrialScore from a dict"""
+        """Create an instance of ScalarOrVector from a dict"""
         if obj is None:
             return None
 
@@ -87,11 +82,8 @@ class MatchTrialScore(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "status": obj.get("status"),
-            "error": obj.get("error"),
-            "value": obj.get("value"),
-            "startedAt": obj.get("startedAt"),
-            "finishedAt": obj.get("finishedAt")
+            "vector": obj.get("vector"),
+            "scalar": obj.get("scalar")
         })
         return _obj
 
