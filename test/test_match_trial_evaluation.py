@@ -38,8 +38,8 @@ class TestMatchTrialEvaluation(unittest.TestCase):
             return MatchTrialEvaluation(
                 status = 'Success',
                 error = '',
-                objective = {vector: [1.234, -5.678, 9.1011]},
-                constraint = {vector: [1.234, -5.678, 9.1011]},
+                objective = {"vector":[1.234,-5.678,9.1011]},
+                constraint = {"vector":[1.234,-5.678,9.1011]},
                 info = None,
                 feasible = True,
                 started_at = '2024-08-29T10:12:58.123Z',

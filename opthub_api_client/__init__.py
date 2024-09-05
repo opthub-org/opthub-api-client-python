@@ -42,6 +42,7 @@ from opthub_api_client.models.get_match_evaluation404_response import GetMatchEv
 from opthub_api_client.models.get_match_score404_response import GetMatchScore404Response
 from opthub_api_client.models.get_match_trial403_response import GetMatchTrial403Response
 from opthub_api_client.models.get_match_trial404_response import GetMatchTrial404Response
+from opthub_api_client.models.get_solution404_response import GetSolution404Response
 from opthub_api_client.models.match_trial_evaluation import MatchTrialEvaluation
 from opthub_api_client.models.match_trial_response import MatchTrialResponse
 from opthub_api_client.models.match_trial_score import MatchTrialScore
@@ -50,3 +51,4 @@ from opthub_api_client.models.runner_status import RunnerStatus
 from opthub_api_client.models.scalar_or_vector import ScalarOrVector
 from opthub_api_client.models.server_error_code import ServerErrorCode
 from opthub_api_client.models.server_error_response import ServerErrorResponse
+from opthub_api_client.models.solution import Solution

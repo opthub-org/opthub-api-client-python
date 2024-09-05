@@ -55,6 +55,13 @@ class TestMatchTrialsApi(unittest.TestCase):
         """
         pass
 
+    def test_get_solution(self) -> None:
+        """Test case for get_solution
+
+        Retrieve the Solution submitted by the Participant themselves.
+        """
+        pass
+
 
 if __name__ == '__main__':
     unittest.main()

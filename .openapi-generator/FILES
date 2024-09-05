@@ -14,6 +14,7 @@ docs/GetMatchEvaluation404Response.md
 docs/GetMatchScore404Response.md
 docs/GetMatchTrial403Response.md
 docs/GetMatchTrial404Response.md
+docs/GetSolution404Response.md
 docs/MatchTrialEvaluation.md
 docs/MatchTrialResponse.md
 docs/MatchTrialScore.md
@@ -23,6 +24,7 @@ docs/RunnerStatus.md
 docs/ScalarOrVector.md
 docs/ServerErrorCode.md
 docs/ServerErrorResponse.md
+docs/Solution.md
 git_push.sh
 opthub_api_client/__init__.py
 opthub_api_client/api/__init__.py
@@ -42,6 +44,7 @@ opthub_api_client/models/get_match_evaluation404_response.py
 opthub_api_client/models/get_match_score404_response.py
 opthub_api_client/models/get_match_trial403_response.py
 opthub_api_client/models/get_match_trial404_response.py
+opthub_api_client/models/get_solution404_response.py
 opthub_api_client/models/match_trial_evaluation.py
 opthub_api_client/models/match_trial_response.py
 opthub_api_client/models/match_trial_score.py
@@ -50,6 +53,7 @@ opthub_api_client/models/runner_status.py
 opthub_api_client/models/scalar_or_vector.py
 opthub_api_client/models/server_error_code.py
 opthub_api_client/models/server_error_response.py
+opthub_api_client/models/solution.py
 opthub_api_client/py.typed
 opthub_api_client/rest.py
 pyproject.toml
@@ -68,6 +72,7 @@ test/test_get_match_evaluation404_response.py
 test/test_get_match_score404_response.py
 test/test_get_match_trial403_response.py
 test/test_get_match_trial404_response.py
+test/test_get_solution404_response.py
 test/test_match_trial_evaluation.py
 test/test_match_trial_response.py
 test/test_match_trial_score.py
@@ -77,4 +82,5 @@ test/test_runner_status.py
 test/test_scalar_or_vector.py
 test/test_server_error_code.py
 test/test_server_error_response.py
+test/test_solution.py
 tox.ini

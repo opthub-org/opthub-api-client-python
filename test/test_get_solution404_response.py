@@ -15,10 +15,10 @@
 
 import unittest
 
-from opthub_api_client.models.create_match_trial_request import CreateMatchTrialRequest
+from opthub_api_client.models.get_solution404_response import GetSolution404Response
 
-class TestCreateMatchTrialRequest(unittest.TestCase):
-    """CreateMatchTrialRequest unit test stubs"""
+class TestGetSolution404Response(unittest.TestCase):
+    """GetSolution404Response unit test stubs"""
 
     def setUp(self):
         pass
@@ -26,25 +26,26 @@ class TestCreateMatchTrialRequest(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> CreateMatchTrialRequest:
-        """Test CreateMatchTrialRequest
+    def make_instance(self, include_optional) -> GetSolution404Response:
+        """Test GetSolution404Response
             include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `CreateMatchTrialRequest`
+        # uncomment below to create an instance of `GetSolution404Response`
         """
-        model = CreateMatchTrialRequest()
+        model = GetSolution404Response()
         if include_optional:
-            return CreateMatchTrialRequest(
-                variable = {"vector":[1.234,-5.678,9.1011]}
+            return GetSolution404Response(
+                code = 'MatchNotFound',
+                message = 'Match is not found.'
             )
         else:
-            return CreateMatchTrialRequest(
+            return GetSolution404Response(
         )
         """
 
-    def testCreateMatchTrialRequest(self):
-        """Test CreateMatchTrialRequest"""
+    def testGetSolution404Response(self):
+        """Test GetSolution404Response"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

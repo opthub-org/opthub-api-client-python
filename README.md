@@ -100,6 +100,7 @@ Class | Method | HTTP request | Description
 *MatchTrialsApi* | [**get_match_evaluation**](docs/MatchTrialsApi.md#get_match_evaluation) | **GET** /matches/{match_uuid}/trials/{trial_no}/evaluation | Retrieve status of a specific match evaluation related to the Solution submitted by the Participant themselves.
 *MatchTrialsApi* | [**get_match_score**](docs/MatchTrialsApi.md#get_match_score) | **GET** /matches/{match_uuid}/trials/{trial_no}/score | Retrieve status of a specific match score related to the Solution submitted by the Participant themselves.
 *MatchTrialsApi* | [**get_match_trial**](docs/MatchTrialsApi.md#get_match_trial) | **GET** /matches/{match_uuid}/trials/{trial_no} | Retrieve status of a specific Match Trial related to the Solution submitted by the Participant themselves.
+*MatchTrialsApi* | [**get_solution**](docs/MatchTrialsApi.md#get_solution) | **GET** /matches/{match_uuid}/trials/{trial_no}/solution | Retrieve the Solution submitted by the Participant themselves.
 
 
 ## Documentation For Models
@@ -114,6 +115,7 @@ Class | Method | HTTP request | Description
  - [GetMatchScore404Response](docs/GetMatchScore404Response.md)
  - [GetMatchTrial403Response](docs/GetMatchTrial403Response.md)
  - [GetMatchTrial404Response](docs/GetMatchTrial404Response.md)
+ - [GetSolution404Response](docs/GetSolution404Response.md)
  - [MatchTrialEvaluation](docs/MatchTrialEvaluation.md)
  - [MatchTrialResponse](docs/MatchTrialResponse.md)
  - [MatchTrialScore](docs/MatchTrialScore.md)
@@ -122,6 +124,7 @@ Class | Method | HTTP request | Description
  - [ScalarOrVector](docs/ScalarOrVector.md)
  - [ServerErrorCode](docs/ServerErrorCode.md)
  - [ServerErrorResponse](docs/ServerErrorResponse.md)
+ - [Solution](docs/Solution.md)
 
 
 <a id="documentation-for-authorization"></a>
