@@ -1,6 +1,6 @@
 # opthub_api_client.MatchTrialsApi
 
-All URIs are relative to *https://api.opthub.ai*
+All URIs are relative to *https://api.competition.opthub.ai*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -27,10 +27,10 @@ from opthub_api_client.models.match_trial_response import MatchTrialResponse
 from opthub_api_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.opthub.ai
+# Defining the host is optional and defaults to https://api.competition.opthub.ai
 # See configuration.py for a list of all supported configuration parameters.
 configuration = opthub_api_client.Configuration(
-    host = "https://api.opthub.ai"
+    host = "https://api.competition.opthub.ai"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -48,7 +48,7 @@ configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 with opthub_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = opthub_api_client.MatchTrialsApi(api_client)
-    match_uuid = '5d7fc778-3e59-4128-a797-2e423c0aa461' # str | Match UUID
+    match_uuid = UUID('5d7fc778-3e59-4128-a797-2e423c0aa461') # UUID | Match UUID
     create_match_trial_request = opthub_api_client.CreateMatchTrialRequest() # CreateMatchTrialRequest |  (optional)
 
     try:
@@ -67,7 +67,7 @@ with opthub_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **match_uuid** | **str**| Match UUID | 
+ **match_uuid** | **UUID**| Match UUID | 
  **create_match_trial_request** | [**CreateMatchTrialRequest**](CreateMatchTrialRequest.md)|  | [optional] 
 
 ### Return type
@@ -111,10 +111,10 @@ from opthub_api_client.models.match_trial_evaluation import MatchTrialEvaluation
 from opthub_api_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.opthub.ai
+# Defining the host is optional and defaults to https://api.competition.opthub.ai
 # See configuration.py for a list of all supported configuration parameters.
 configuration = opthub_api_client.Configuration(
-    host = "https://api.opthub.ai"
+    host = "https://api.competition.opthub.ai"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -132,7 +132,7 @@ configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 with opthub_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = opthub_api_client.MatchTrialsApi(api_client)
-    match_uuid = '5d7fc778-3e59-4128-a797-2e423c0aa461' # str | Match UUID
+    match_uuid = UUID('5d7fc778-3e59-4128-a797-2e423c0aa461') # UUID | Match UUID
     trial_no = 4 # int | Trial number
 
     try:
@@ -151,7 +151,7 @@ with opthub_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **match_uuid** | **str**| Match UUID | 
+ **match_uuid** | **UUID**| Match UUID | 
  **trial_no** | **int**| Trial number | 
 
 ### Return type
@@ -195,10 +195,10 @@ from opthub_api_client.models.match_trial_score import MatchTrialScore
 from opthub_api_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.opthub.ai
+# Defining the host is optional and defaults to https://api.competition.opthub.ai
 # See configuration.py for a list of all supported configuration parameters.
 configuration = opthub_api_client.Configuration(
-    host = "https://api.opthub.ai"
+    host = "https://api.competition.opthub.ai"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -216,7 +216,7 @@ configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 with opthub_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = opthub_api_client.MatchTrialsApi(api_client)
-    match_uuid = '5d7fc778-3e59-4128-a797-2e423c0aa461' # str | Match UUID
+    match_uuid = UUID('5d7fc778-3e59-4128-a797-2e423c0aa461') # UUID | Match UUID
     trial_no = 4 # int | Trial number
 
     try:
@@ -235,7 +235,7 @@ with opthub_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **match_uuid** | **str**| Match UUID | 
+ **match_uuid** | **UUID**| Match UUID | 
  **trial_no** | **int**| Trial number | 
 
 ### Return type
@@ -279,10 +279,10 @@ from opthub_api_client.models.match_trial_response import MatchTrialResponse
 from opthub_api_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.opthub.ai
+# Defining the host is optional and defaults to https://api.competition.opthub.ai
 # See configuration.py for a list of all supported configuration parameters.
 configuration = opthub_api_client.Configuration(
-    host = "https://api.opthub.ai"
+    host = "https://api.competition.opthub.ai"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -300,7 +300,7 @@ configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 with opthub_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = opthub_api_client.MatchTrialsApi(api_client)
-    match_uuid = '5d7fc778-3e59-4128-a797-2e423c0aa461' # str | Match UUID
+    match_uuid = UUID('5d7fc778-3e59-4128-a797-2e423c0aa461') # UUID | Match UUID
     trial_no = 4 # int | Trial number
 
     try:
@@ -319,7 +319,7 @@ with opthub_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **match_uuid** | **str**| Match UUID | 
+ **match_uuid** | **UUID**| Match UUID | 
  **trial_no** | **int**| Trial number | 
 
 ### Return type
@@ -363,10 +363,10 @@ from opthub_api_client.models.solution import Solution
 from opthub_api_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.opthub.ai
+# Defining the host is optional and defaults to https://api.competition.opthub.ai
 # See configuration.py for a list of all supported configuration parameters.
 configuration = opthub_api_client.Configuration(
-    host = "https://api.opthub.ai"
+    host = "https://api.competition.opthub.ai"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -384,7 +384,7 @@ configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 with opthub_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = opthub_api_client.MatchTrialsApi(api_client)
-    match_uuid = '5d7fc778-3e59-4128-a797-2e423c0aa461' # str | Match UUID
+    match_uuid = UUID('5d7fc778-3e59-4128-a797-2e423c0aa461') # UUID | Match UUID
     trial_no = 4 # int | Trial number
 
     try:
@@ -403,7 +403,7 @@ with opthub_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **match_uuid** | **str**| Match UUID | 
+ **match_uuid** | **UUID**| Match UUID | 
  **trial_no** | **int**| Trial number | 
 
 ### Return type
